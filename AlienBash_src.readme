@@ -1,0 +1,91 @@
+Short:        Assembly sourcecodes for "Alien Bash II"
+Author:       Glenn Cumming
+Uploader:     aminet aminet net
+Type:         game/shoot
+Architecture: generic
+
+These are the assembly sources (and graphics, sounds, level data etc.) for the
+"Chaos Engine" clone Alien Bash II:
+
+http://hol.abime.net/5406
+
+The data was found by "Higgy" on an old nearly dead Amiga harddrive he
+he got his hands on in January 2014. When he googled the name "Glen Cumming",
+he stumbled across a thread on an Amiga forum, where Amiga user Prowler was
+undertaking heroic efforts to rescue the Alien Bash II sources from a stack of
+190 partially corrupted or dead floppy disks:
+
+http://eab.abime.net/showthread.php?p=934914#post934914
+
+Together, Higgy and Prowler managed to backup the five partitions to the PC
+and make sure all the files are intact.
+
+This archives contains the contents of the "Code" and "Scratch" partitions.
+The other partitions ("Workbench", "Tools", "Games") were left out, because
+they contained copyrighted works from other sources (a complete Workbench
+distribution, compilers and linkers, DPaint, Audiomaster...).
+
+Note that this archive contains complete and unchecked backups of the two
+partitions mentioned above, there is at least one unreleased game demo
+(Scratch/exe/squizdemo) in there, including full source code (Code/platform/).
+This should be split down into different archives, but this mess needs to be
+tackled by somebody with assembly skills who can verify if anything is missing.
+
+This code is available under the following license, as stated by Mr. Glen
+Cumming in the above thread:
+
+"I am happy for every scrap of code on my disks to be made available to
+whoever wants it - I only ask that the really embarassing stuff is erased
+(lots) and any potentially libelous messages (or swears) in any of the
+code/scrolling messages are removed."
+
+The following notes are from Glen Cummings, after he reviewed the contents of
+this archive:
+
+=========
+ggcumming
+=========
+
+Hi all,
+
+First thanks to Prowler for sorting all this out - a very dedicated Amiga
+enthusiast indeed!
+
+Just some quick notes from what I can remember after looking at the code.
+
+1) I started mucking around with linking before I finished - the code that
+gets linked can be brought back into the main assemble but for now to build
+the code you need to :
+
+i) Assemble main.s as a linkable file
+ii) Asemble the four files in glens_code/link_code seperately (as linkable)
+iii) You will then have five files which can be linked - see the scratch:link
+directory - that's where the bits went and there is a link.bat file to create
+the final executable - that can be run as is (picks ups data from
+scratch:game_files)
+
+2) The maps are all in scratch:ABII_MAPS - you can load the prj/level1.prj
+into the map editor which loads level1 and the graphics block pages. There is
+some documentation on the map editor in the code:newmaptool/docs directory -
+note the overview function is useful as it shows the entire map - a point on
+the overview can then be clicked to centre there - once the functions are
+understood maps can be chucked together really quickly
+
+An alienbashII map is two parts - a 16-bit word map for the blocks and an
+additional 8-bit map (of the same size) for aliens - these are editable in the
+tool - the aliens appear as numbers over the map.
+
+The only bit missing at the moment is the special versions of the block pages
+which indicate specific blocks for walking over which trigger scripts in the
+code - however the code could be examined and the numbers added back in.
+
+So the code assembles (note need 2mb extra ram for stock 1200), the maps are
+editable - final bit is compressing (not looked at that yet but code is on
+there) and modifying the in-game data to support the map - and trying to make
+the game more interesting to play!
+
+Happy hacking
+
+ps. play squizdemo - much more fun (quite hard with keyboard - need to get
+speed up before jumping over things, pull down for crushing enemies and second
+fire button will throw balls when picked up) 

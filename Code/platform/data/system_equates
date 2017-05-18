@@ -1,0 +1,24 @@
+bltcon0		EQU    $040
+bltcon1		EQU    $042
+bltafwm		EQU    $044
+bltalwm		EQU    $046
+bltcpth		EQU    $048
+bltbpth		EQU    $04C
+bltapth		EQU    $050
+bltdpth		EQU    $054
+bltsize		EQU    $058
+bltcmod		EQU    $060
+bltbmod		EQU    $062
+bltamod		EQU    $064
+bltdmod		EQU    $066
+bltcdat		EQU    $070
+bltbdat		EQU    $072
+bltadat		EQU    $074
+dsksync		EQU    $07E
+cop1lc		EQU    $080
+cop2lc		EQU    $084
+bpldat		EQU    $110
+
+
+MODE_OLDFILE	EQU    1005
+MODE_NEWFILE	EQU    1006

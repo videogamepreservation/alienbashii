@@ -1,0 +1,327 @@
+                             CUSTOM BOOTBLOCKS
+
+                     An in-depth, detailed description
+
+                    © Copyright 1989 by Jonathan Potter
+
+
+WHAT IS A BOOTBLOCK?
+--------------------
+
+The bootblock is the first two sectors, or 1024 bytes of information, on an
+Amiga disc. When the a disc is inserted at the "Insert Workbench disc" prompt,
+this information is read off the disc and executed. The standard AmigaDOS
+bootblock simply makes sure that the DOS library is correctly opened,
+and passes control back so booting can continue.
+Many authors of commercial software utilise "custom" bootblocks, perhaps as
+a form of copy protection, a for a fast-load routine, etc. A custom
+bootblock is simply a bootblock that is different to the standard AmigaDOS
+"Check-DOS-and-leave" style bootblock. Custom bootblocks can be used
+to display scrolling messages, flashy colours or even simple graphics before
+booting continues, and, unfortunately, provide the most common medium for
+the spread of viruses.
+In the examples given below, a knowledge of 68000 assembly language is
+assumed.
+
+
+THE STANDARD DOS BOOTBLOCK
+--------------------------
+
+The standard AmigaDOS bootblock simply checks that the DOS library is
+correctly opened, and exits, to allow booting to continue.
+The disassembled bootblock follows :
+
+
+ 0..    Start:
+ 1..       dc.b    'DOS',0
+ 2..       dc.l    $c0200f19
+ 3..       dc.l    $00000370
+ 4..       lea     DOSLibrary,a1
+ 5..       jsr     _LVOFindResident(a6)
+ 6..       tst.l   d0
+ 7..       beq.s   NoDOS
+ 8..       move.l  d0,a0
+ 9..       move.l  LIB_REVISION(a0),a0
+10..       moveq.l #0,d0
+11..   ReturnControl:
+12..       rts
+13..   NoDOS:
+14..       moveq.l #-1,d0
+15..       bra.s   ReturnControl
+16..   DOSLibrary
+17..       dc.b    'dos.library',0
+18..       end
+
+
+LINE     DESCRIPTION
+
+  0      The very beginning of the bootblock.
+
+  1      The first word of every bootblock that is to be bootable must be
+         the string 'DOS' followed by either 0 or 1. If the string 'DOS'
+         is not present, the disc will not boot. A 0 following the 'DOS'
+         indicates a normal disc, a 1 indicates a FastFileSystem disc.
+
+  2      The next long word is the checksum of the bootblock. The
+         checksum is the additive inverse of the sum of all the bytes in
+         the bootblock (except the four bytes making up the checksum).
+         To put that in English, if x is the sum of all the bytes in the
+         bootblock except for the bytes of the checksum, then
+         x + checksum = 0, and checksum = -x. If this is not the case,
+         the disc will not boot.
+
+  3      The next long word is a complete mystery to me. Changing it
+         doesn't seem to make any difference, but it's probably better
+         to leave it at $00000370.
+
+  4      This instruction loads the address of the string 'dos.library'
+         into an address register. Execution of the bootblock begins at
+         this line (which is offset $0c), if the above conditions (1 & 2)
+         are met.
+
+  5      This instruction executes the command FindResident(), which
+         uses a string previously stored in a1 (see line 4 above),
+         and searches for a resident module of that name. In this case,
+         it is looking to see if the DOS library is still open.
+
+  6      Test the result returned by 5 (above).
+
+  7      If DOS library is not open, control is passed to the NoDOS routine.
+
+  8      For booting to continue, the bootblock must return with the version
+         number of the DOS library in a0.
+         The base address of the DOS library was returned by FindResident()
+         in d0. We now place it in a0.
+
+  9      Place the version number in a0.
+
+ 10      The final test to see if this disc boots; the bootblock must
+         return 0 in d0 to be bootable.
+
+ 11      Something to branch back to if we can't boot.
+
+ 12      Return and continue the booting process.
+
+ 13      Control is passed to here if FindResident() returned 0, meaning
+         the DOS library is not open.
+
+ 14      For the boot to fail, any value other than 0 must be in d0 when
+         we return. Here we use -1.
+
+ 15      Return.
+
+ 16      This is the address that is loaded in line 4 (above).
+
+ 17      And this is the string ('dos.library') that is at that address.
+
+ 18      End of the standard bootblock. It's that simple.
+
+
+CUSTOM BOOTBLOCKS
+-----------------
+
+Of course the above routine takes only a few bytes (49 in fact), and so
+there are 975 bytes left for other purposes. As any assembler programmer
+knows, a lot can be accomplished in 975 bytes, and so the door is left
+open for a wide range of bootblocks. The two rules that all custom bootblocks
+must adhere to are these :
+
+  a)  All library routines can be called except those from the DOS library
+  b)  The bootblock must perform the above functions (as well as its own)
+      if it wishes to eventually boot into a CLI type screen.
+
+One of the more popular types of custom bootblocks is a NoFastMem bootblock.
+This bootblock can be installed, say, on the disc of a game that will not
+function correctly if any expansion RAM is present, and can be used to
+(optionally) turn off any expansion RAM found. A bootblock of this sort
+is presented below :
+
+ 0..    Start:
+ 1..       dc.b    'DOS',0
+ 2..       dc.l    $6e1ebbb3
+ 3..       dc.l    $00000370
+ 4..       movem.l d0-d7/a0-a6,-(sp)
+ 5..       bsr     NoFastMem
+ 6..       movem.l (sp)+,d0-d7/a0-a6
+ 7..       lea     DOSLibrary,a1
+ 8..       jsr     _LVOFindResident(a6)
+ 9..       tst.l   d0
+10..       beq.s   NoDOS
+11..       move.l  d0,a0
+12..       move.l  LIB_REVISION(a0),a0
+13..       moveq.l #0,d0
+14..   ReturnControl:
+15..       rts
+16..   NoDOS:
+17..       moveq.l #-1,d0
+18..       bra.s   ReturnControl
+19..   DOSLibrary
+20..       dc.b    'dos.library',0
+21..   NoFastMem:
+22..       move.l  #4,a6
+23..       lea     IntuitionLibrary,a1
+24..       jsr     _LVOOpenLibrary(a6)
+25..       move.l  d0,a6
+26..       lea     AlertText,a0
+27..       move.l  #0,d0
+28..       move.l  #55,d1
+29..       jsr     _LVODisplayAlert(a6)
+30..       move.l  d0,d2
+31..       move.l  a6,a1
+32..       move.l  #4,a6
+33..       jsr     _LVOCloseLibrary(a6)
+34..       tst.l   d2
+35..       bne.s   SwitchOffMem
+36..       rts
+37..   SwitchOffMem:
+38..       move.l  #$20004,d1
+39..       jsr     _LVOAvailMem(a6)
+40..       tst.l   d0
+41..       beq.s   NoMemoryLeft
+42..       jsr     _LVOAllocMem(a6)
+43..       tst.l   d0
+44..       bne.s   SwitchOffMem
+45..   NoMemoryLeft:
+46..       rts
+47..   AlertText
+48..       dc.b 0,60,20,'NoFastMem bootblock (c) 1989 by Jonathan Potter',0,1
+49..       dc.b 0,60,30,'Press Left Mouse Button to turn off Fast Memory',0,1
+50..       dc.b 0,60,40,'Press Right Mouse Button to enable Fast Memory.',0,0
+51..   IntuitionLibrary
+52..       dc.b 'intuition.library',0
+53..       end
+
+
+LINE     DESCRIPTION
+
+  0      The very beginning of the bootblock.
+
+  1      'DOS' to be bootable.
+
+  2      Checksum.
+
+  3      ????????
+
+  4      It's a good idea to save all the registers on the stack when
+         branching to your own bootblock.
+
+  5      Branch to my own bootblock.
+
+  6      Restore all the registers to their original values.
+
+  7-20   The same as 4-17 in the above section.
+
+  21     The start of the NoFastMem section.
+
+  22     Since EXEC is always open, and its address is always 4, it's easy
+         to get at it.
+
+  23     Load the string 'intuition.library' into a1.
+
+  24     Open the INTUITION library.
+
+  25     Put the address of INTUITION in a6.
+
+  26     As a simple display medium, we are using a DisplayAlert, of the
+         recoverable nature. That's why we need INTUITION, and that's why
+         we load the address of the alert text here.
+
+  27     0 means a recoverable alert.
+
+  28     The height of the alert.
+
+  29     Display the alert.
+
+  30     Save the return we got from the DisplayAlert in d2, as
+         CloseLibrary() modifies d0.
+
+  31     Put the address of INTUITION in a1.
+
+  32     Put EXEC back in a6.
+
+  33     Close the INTUITION library.
+
+  34     Now then, see if the left or right mouse button was hit in the
+         DisplayAlert.
+
+  35     If the left mouse button was hit, branch to the turn-off-fast-memory
+         routine.
+
+  36     Now return and execute the standard part of the bootblock.
+
+  37     This is the routine that actually switches off the memory.
+
+  38     $20004 is the flag MEMF_LARGEST|MEMF_FAST. When used with the
+         command AvailMem(), we will get back the size of the largest
+         available fast memory chunk.
+
+  39     AvailMem(). EXEC library is still in a6 from closing INTUITION.
+
+  40     See if there is, in fact, any fast memory available.
+
+  41     If not, branch and exit.
+
+  42     The size of the memory chunk is still in d0, from AvailMem(),
+         and the flag MEMF_LARGEST|MEMF_FAST is still in d1. Here we
+         allocate that memory chunk (and never return it!).
+
+  43     Check to see if the allocation was successful.
+
+  44     If the allocation was successful, jump back to the start of the
+         SwitchOffMem routine (line 36) to get the next-largest chunk.
+
+  45     We jump to here if there is no fast memory to be switched off,
+         or if the memory allocation failed.
+
+  46     Return to line 35.
+
+  47-52  Various strings.
+
+  53     The end of our custom bootblock.
+
+
+The above bootblock shows the usage of commands from two libraries,
+EXEC and INTUITION. You are free to use commands from any of the ROM resident
+libraries, except DOS.
+
+
+WRITING A CUSTOM BOOTBLOCK
+--------------------------
+
+It really is easy to write a custom bootblock, as long as the rules outlined
+above are adhered to. I used the Manx assembler AS to write the above
+NoFastMem bootblock, and the procedure I used was quite simple. Once I had
+written the source,
+
+                 AS NoFastMem.asm
+                 LN NoFastMem
+
+Using LVOs, and therefore NOT linking with -Lc, means the code will be the
+shortest possible. I then used a program I have written called BBInstall,
+which takes an executable generated as above, strips off the DOS header
+information (so that the file starts with the 'DOS' string), fixes the
+checksum, and then writes it to the specified drive.
+BBInstall should accompany this article. If it does not, you can install
+the bootblock yourself using the following procedure :
+
+a) Using a text editor that handles binary, delete all characters from the
+   executable up until the 'DOS' string.
+b) Install this file on the specified disc using a bootblock backup/restore
+   utility, such as PopInfo, DirUtils, BootBack, etc.
+c) Fix the checksum on this bootblock using a utility such as ZeroVirus,
+   NoVirus, DiskX, etc.
+
+Happy custom bootblocking!
+
+  - JP, August 1989.
+
+
+                     Address author correspondance to:
+
+                             Jonathan Potter
+                             3 William Street
+                             Clarence Park
+                             SA 5034
+                             Australia
+
+                             ph. (08) 293 2788

@@ -1,0 +1,324 @@
+                The AGA Chipset (Amiga 1200/4000)
+                ---------------------------------
+
+
+**** WARNING ****
+
+AGA Registers are temporary. They will change. Do not rely
+on this documentation. No programs written with this information
+can be officially endorsed or supported by Commodore. If this
+bothers you then stop reading now.
+
+Future Amigas will *NOT* support *ANY* of the new AGA registers.
+If you want your product to work on the next generation
+of Amigas the do either:
+
+a) Program for ECS only (*MOST* ECS will be supported. Don't rely
+on productivity or SuperHires mode via hardware though!)
+
+b) Program your displays via the OS, either using graphics.library
+(views) or intuition.library (screens). If you use the OS then any
+UserCopperList code you add must *ONLY* be for ECS level instructions
+or lower (so, sorry, no 24-bit rainbows).
+
+I have decided to include this material as there are still reasons
+for people to program AGA hardware, especially demo coders. PLEASE
+do not let me down by using this information to write commercial
+software. If this happens I will have to remove the AGA docs from
+HowToCode.
+
+And as soon as Commodore provide a suitable way for all programmers
+to access the power of the A1200/4000 chipset in a supportable
+way, this file will be removed and replaced with one that
+tells you how to code properly. But in the meantime......
+
+
+
+How do I tell if I'm running on an Amiga 1200/4000
+--------------------------------------------------
+
+Do *NOT* check library revision numbers, V39 OS can and does
+run on standard & ECS chipset machines (This Amiga 3000
+is currently running V39).
+
+This code is a much better check for AGA than in howtocode4!!!!!
+
+
+GFXB_AA_ALICE 	equ 2
+gb_ChipRevBits0 equ $ec
+
+; Call with a6 containing GfxBase from opened graphics.library
+
+	btst	#GFXB_AA_ALICE,gb_ChipRevBits0(a6)
+	bne.s	is_aa
+
+This will not work unless the V39 SetPatch command has been
+executed. If you *must* use trackloader demos then
+execute the graphics.library function
+
+	SetChipRev(chipset)
+
+
+This is a V39 function (No Kickstart 3.0? Then you haven't got
+AGA!).
+
+You can set the chipset you require with the following parameters:
+
+	Normal	= 	$00
+	ECS	=	$03	(Only on ECS or higher)
+	AGA	=	$0f	(Only on AGA chipset machines)
+	Best	= 	$ffffffff (This gives best possible on machine)
+
+
+This is called in the system by SetPatch.
+
+The code in howtocode4 also had major problems when being
+run on non ECS machines (without Super Denise or Lisa), as the
+register was undefined under the original (A) chipset, and
+would return garbage, sometimes triggering a false AGA-present
+response.
+
+
+Programming AGA hardware
+------------------------
+
+This time I've changed registers to their names rather than
+addresses...
+
+Bitplanes:
+Set 0 to 7 bitplanes as before in BPLCON0
+Set 8 bitplanes by setting bit 4 of BPLCON0 bits 12 to 15 should be zero.
+(ooops. Big mistake last time!)
+
+Colour Registers:
+
+There are now 256 colour registers, all accessed through the original
+32 registers
+
+AGA works with 8 differents palettes of 32 colors each, re-using
+colour registers from COLOR00 to COLOR31
+
+You can choose the palette you want to access via the bits 13 to 15 of
+register BPLCON3 ($dff106)
+
+
+bit 15 | bit 14 | bit 13 | Selected palette
+-------+--------+--------+------------------------------
+   0   |    0   |    0   | Palette 0 (color 0 to 31)
+   0   |    0   |    1   | Palette 1 (color 32 to 63)
+   0   |    1   |    0   | Palette 2 (color 64 to 95)
+   0   |    1   |    1   | Palette 3 (color 96 to 127)
+   1   |    0   |    0   | Palette 4 (color 128 to 159)
+   1   |    0   |    1   | Palette 5 (color 160 to 191)
+   1   |    1   |    0   | Palette 6 (color 192 to 223)
+   1   |    1   |    1   | Palette 7 (color 224 to 255)
+
+To move a 24-bit colour value into a colour register requires
+two writes to the register:
+
+First clear bit 9 of BPLCON3
+Move high nibbles of each colour component to colour registers
+
+Then set bit 9 of BPLCON3
+Move low nibbles of each colour components to colour registers
+
+For example, to change colour zero to the colour $123456
+
+   dc.l $01060000
+   dc.l $01800135
+   dc.l $01060200
+   dc.l $01800246
+
+Note: As soon as you start messing with $dff106 forget all your
+fancy multi-colours-per-line plasma tricks. The colour only
+gets updated at the end of the scanline.
+
+Sprites:
+To  change  the  resolution  of the sprite, just use bit 7 and 6 of
+register BPLCON3
+
+bit 7 | bit 6 | Resolution
+------+-------+-----------
+  0   |   0   | Lowres    	(140ns)
+  1   |   0   | Hires	(70ns)
+  0   |   1   | Lowres    	(140ns)
+  1   |   1   | SuperHires	(35ns)
+--------------------------
+
+(Now.. 70ns sprites may not be available unless the Interlace bit in
+BPLCON0 is set. Don't ask me why....
+There appears to be much more to this than just these two bits.
+It seems to depend on a lot of different things...)
+
+For 32-bit and 64-bit wide sprites use bit 3 and 2 of register FMODE
+($dff1fc) Sprite format (in particular the control words) vary for each
+width.
+
+bit 3 | bit 2 | Wide        | Control Words
+------+-------+-------------+----------------------------------
+  0   |   0   | 16 pixels   | 2 words (normal)
+  1   |   0   | 32 pixels   | 2 longwords
+  0   |   1   | 32 pixels   | 2 longwords
+  1   |   1   | 64 pixels   | 2 double long words (4 longwords)
+---------------------------------------------------------------
+Wider sprites are not available under all conditions.
+
+It  is possible to choose the color palette of the sprite.
+This is done with bits 0 to 3 (even) and 4 to 7 (odd)
+of register $010C.
+
+bit 3 | bit 2 | bit 1 | bit 0 | Even sprites
+bit 7 | bit 6 | bit 5 | bit 4 | Odd Sprites
+------+-------+-------+-------+------------------------------------------
+  0   |   0   |   0   |   0   | $0180/palette 0 (coulor 0)
+  0   |   0   |   0   |   1   | $01A0/palette 0 (color 15)
+  0   |   0   |   1   |   0   | $0180/palette 1 (color 31)
+  0   |   0   |   1   |   1   | $01A0/palette 1 (color 47)
+  0   |   1   |   0   |   0   | $0180/palette 2 (color 63)
+  0   |   1   |   0   |   1   | $01A0/palette 2 (color 79)
+  0   |   1   |   1   |   0   | $0180/palette 3 (color 95)
+  0   |   1   |   1   |   1   | $01A0/palette 3 (color 111)
+  1   |   0   |   0   |   0   | $0180/palette 4 (color 127)
+  1   |   0   |   0   |   1   | $01A0/palette 4 (color 143)
+  1   |   0   |   1   |   0   | $0180/palette 5 (color 159)
+  1   |   0   |   1   |   1   | $01A0/palette 5 (color 175)
+  1   |   1   |   0   |   0   | $0180/palette 6 (color 191)
+  1   |   1   |   0   |   1   | $01A0/palette 6 (color 207)
+  1   |   1   |   1   |   0   | $0180/palette 7 (color 223)
+  1   |   1   |   1   |   1   | $01A0/palette 7 (color 239)
+-------------------------------------------------------------------------
+
+Bitplanes, sprites and copperlists should be 64-bit aligned
+under AGA. Bitplanes should also only be multiples of 64-bits
+wide, so if you want an extra area on the side of your screen for
+smooth blitter scrolling it must be *8 bytes* wide, not two as normal.
+
+For example:
+
+      CNOP  0,8
+sprite   incbin "myspritedata"
+
+      CNOP  0,8
+bitplane incbin "mybitplane"
+
+and so on.
+
+This also raises another problem. You can no longer use
+AllocMem() to allocate bitplane/sprite memory directly.
+
+Either use AllocMem(sizeofplanes+8) and calculate how many
+bytes you have to skip at the front to give 64-bit alignment
+(remember this assumes either you allocate each bitplane
+individually or make sure the bitplane size is also an
+exact multiple of 64-bits), or you can use the new V39
+function AllocBitMap().
+
+
+
+The Magic FMode Register
+------------------------
+If you set your 1200/4000 to a hiresmode (such as 1280x512 Superhires
+256 colours) and disassemble the copperlist, you find fun things
+happen to the FMODE register ($dff1fc). The FMODE register determines
+the amount of words transferred between chipram and the Lisa chip
+(I think)....
+
+$dff1fc bits 0 and 1 value
+
+$00 - Normal (word aligned bitmaps) - for standard ECS modes
+      and up to 8 bitplanes 320x256
+
+$01 - Double (longword aligned bitmaps) - for 640x256 modes in
+      more than 16 colours
+
+$10 - Double (longword aligned bitmaps) - Same effect, for 640x256 modes
+      but different things happen... Not sure why!
+
+$11 - Quadruple [x4] (64-bit aligned bitmaps) - for 1280x256 modes...
+
+
+	Burst Mode Required for Displays
+	--------------------------------
+
+*ALL* ECS and lower screenmodes require only 1x burst.
+
+		Planes	Colours             Burstmode
+
+LORES (320x256)
+                    6	64		1
+		7         128		1
+		8         256		1
+		8	HAM-8		1
+
+HIRES (640x256)     5	32		2
+		6	64		2
+		7	128		2
+		8         256		2
+		8         HAM-8		2
+
+SUPER-HIRES	1	2		1
+(1280x256)	2	4		1
+		3	8		2
+		4	16		2
+		5         32		4
+		6	64		4
+		7	128		4
+		8	256		4
+                    8	HAM-8		4
+
+PRODUCTIVITY        1	2		1
+(640x480,etc)	2	4		1
+		3	8		2
+		4	16		2
+		5         32		4
+		6	64		4
+		7	128		4
+		8	256		4
+                    8	HAM-8		4
+
+This table only shows the minimum required burstmode for each screen.
+You should always try and set the burstmode as high as possible (if
+you are 64-bit aligned and wide, then $11, if 32-bit aligned and wide
+$01, etc...)
+
+
+
+Bits 2 and 3 do the same for sprite width, as has been mentioned elsewhere...
+
+
+Remember... To take advantage of the increased burstmodes (which give
+you more processor time to play with!) your bitmaps must be on 64-bit
+boundaries and be multiples of 64-bits wide (8 bytes)
+
+
+Smooth Hardware Scrolling
+-------------------------
+
+Extra bits have been added to BPLCON1 to allow smoother hardware
+scrolling.
+
+Bits 8 and 9 are the new hi-resolution scroll bits for playfield 0
+and bits 12 and 13 are the new bits for playfield 1
+
+These become the lowest bits of the scroll position, which is now
+0-63 (it used to be 0-16).
+
+Normal 0-16 positions therefore are normal, but it you want to
+position your screen at a (super) hires position you need to set
+the new bits...
+
+
+What is HAM-8 Format?
+---------------------
+
+Ham-8 uses *lower* two bits as the command (either
+new register (%00), or alter Red, Green or Blue component, as in
+standard HAM), and the *upper* 6 bits (planes 2 to 7) as the
+register(0 to 63), or as an 6 bit hold-and-modify value to modify
+the top 6 bits of an 8-bit colour component.
+
+The lower two bits of the colour component are not altered, so
+initial palettes have to be chosen carefuly (or use Art
+Department Professional! or anything that selects colours better)
+
+

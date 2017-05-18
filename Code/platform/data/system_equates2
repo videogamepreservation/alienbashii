@@ -1,0 +1,64 @@
+EXEC_BASE	EQU	4
+Open_Library	EQU	-552
+DMAF_BLITTER	EQU   $0040
+
+DMAF_BLTDONE	EQU   $4000
+DMAF_BLTNZERO	EQU   $2000
+
+DMAB_BLTDONE	EQU   14
+
+READY	EQU	14
+
+Forbid	EQU   -132
+Permit	EQU   -138
+BLTDDAT	EQU   $000
+DMACONR	EQU   $002
+vposr	EQU   $004
+
+vhposr	EQU   $006
+dskdatr	EQU   $008
+joy0dat	EQU   $00A
+joy1dat	EQU   $00C
+clxdat	EQU   $00E
+
+
+
+
+COPJMP1	EQU   $088
+copjmp2	EQU   $08A
+copins	EQU   $08C
+DIWSTRT	EQU   $08E
+DIWSTOP	EQU   $090
+DDFSTRT	EQU   $092
+DDFSTOP	EQU   $094
+DMACON 	EQU   $096
+clxcon	EQU   $098
+intenar  EQU   $01C
+intena	EQU   $09A
+intreq	EQU   $09C
+adkcon	EQU   $09E
+
+BPLCON0	EQU   $100
+BPLCON1	EQU   $102
+BPLCON2	EQU   $104
+BPL1MOD	EQU   $108
+BPL2MOD	EQU   $10A
+
+
+color	EQU   $180
+
+CUSTOM		EQU	$DFF000
+
+ 
+exec	  	equ	4		; amiga executive o/s base
+
+
+SERPER     	equ    $032		; serial port period and control
+SERDATR    	equ    $018		; serial port data and status read
+SERDAT	  	equ    $030
+
+
+BPLEN		EQU	256
+COPEN		EQU	128
+SPROPTH		EQU	120
+SPROPTL		EQU	122

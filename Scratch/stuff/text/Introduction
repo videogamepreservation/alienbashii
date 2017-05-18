@@ -1,0 +1,226 @@
+
+      How to write demos that work (Version 6) - 13/5/93
+      ==================================================
+
+          (or the Amiga Demo Coders Reference Manual)
+
+                    Edited by Comrade J/SAE
+
+       Co-Editor Carl-Henrik Skårstedt (Asterix/Movement)
+
+              email:comradej@althera.demon.co.uk
+
+IMPORTANT: HowToCode docs are currently in theta state. Do
+not rely on any information in these documents! Mistakes are
+almost certain. Please report mistakes to the first email
+address above.
+
+
+INTRODUCTION
+------------
+
+NEW FORMAT - The original text file got too big and unfriendly,
+so it's now split into lots of little text files and source
+files in one big friendly .LHA file. Thanks to everyone who
+mailed me, see if you hassle me enough I *may* listen to what
+you say!
+
+* Please note this is a REPLACEMENT to text files howtocode1.txt
+through howtocode5.txt. Sysops, please remove these earlier files
+as they contain many mistakes. Thanks in advance...*
+
+Thanks to:
+
+Richard Aplin, Matthew Arnold, Andreas Axelsson, Michael Bauer,
+Nils Liaaen Corneliusen, Walter Dao, David Dustin, Chris Green,
+Joep Grooten, Grue, Arno Hollosi, Lars Holmgren, Philip Jespersen,
+Irmen de Jong, Marius Kintel, Christopher Klaus, Mark G Knibbs,
+Jesper R Larsen, Jacco de Leeuw, Tero Lehtonen, Patrik Lundquist,
+Jonas Matton, Stanley Merkx, Jesse Michael, Richard Moeskops,
+John Derek Muir, Karsten Niemeier, Boerge Noest, Mats Olsson,
+Andrew Patterson, Raymond Penners, Vidar Petursson,
+Michael Pollard, Vic Ricker, Timo Rossi, Michael Ryffel,
+Conrade Sanderson, Doz/Shining, Toby Simpson, Darrell Tam,
+Lehtonen Tero, Magnus Timmerby, Yee Tom, and Michel Vissers
+
+for their comments and contributions.
+
+Please note that this file is the work of many authors, although
+the spelling mistakes are all my fault!
+
+
+Introduction
+============
+
+This file has grown somewhat from the file uploaded over
+Christmas 1992. I've been very busy over the last two months,
+so I'm sorry that I haven't been able to update this sooner.
+It started as an angry protest after several new demos I downloaded
+refused to work on my 3000, and has ended up as a sort of general
+how-to-code type article, with particular emphasis on the Amiga 1200.
+
+Now, as many of you may know, Commodore have not released
+hardware information on the AGA chipset, indeed they have said they
+will not (as the registers will change in the future). Demo coders
+may not be too concerned about what is coming in a year or two,
+but IF YOU ARE WRITING COMMERCIAL SOFTWARE you must be.
+
+Chris Green, from Commodore US, asked me to mention the following:
+
+"I'd like it if you acknowledged early in your text that it IS possible
+to do quite exciting demos without poking any hardware registers, and
+that this can be as interesting as direct hardware access.
+amiga.physik.unizh.ch has two AGA demos with source code by me, AABoing
+and TMapdemo. These probably seem pretty lame by normal demo standards
+as I didn't have time to do any nifty artwork or sound, and each only does
+one thing. but they do show the POTENTIAL for OS friendly demos."
+
+I have seen these demos and they are very neat. Currently you
+cannot do serious copper tricks with the OS (or can you Chris? I'd
+love to see some examples if you can...), for example smooth
+gradiated background copperlists or all that fun messing with
+bitplane pointers and modulos. But for a lot of things the
+Kickstart 3.0 graphics.library is capable of lots. If you are
+in desperate need for some hardware trick that the OS can't handle,
+let Chris know about it, you never know what might make it into the
+next OS version!
+
+Chris mentions QBlit and QBSBlit, interrupt driven blitter access.
+These are things that will make games in particular far easier
+to write under the OS now.
+
+Chris also says "Note that if I did a 256 color lores screen using this
+document, it would run fifty times slower than one created using the OS,
+as you haven't figured out enhanced fetch modes yet. A Hires 256 color
+screen wouldn't even work."
+
+There are some new additions to the AGA chapter that discuss some of
+this problem, but if you want maximum performance from an AGA system,
+use the OS.
+
+Remember that on the A1200 chipram has wait-states, while the
+32-bit ROM doesn't. So use the ROM routines, some of them run
+faster than anything you could possibly write (on a A1200 with
+just 2Mb ram).
+
+The only drawback is again documentation. To learn how to code
+V39 OS programs you need the V39 includes and autodocs, which
+I'm not allowed to include here a) because I've signed an NDA,
+and b) because they're massive...
+
+Perhaps, in a later release, I'll give some highlights of V39
+programming... Get Chris Green's example code, it's a good
+place to start.
+
+Register as a developer with your local Commodore office to get
+the autodocs and includes, it's relatively inexpensive (£85 per
+year in the UK)
+
+Most demos I've seen use similar startup code to that I was using back
+in 1988. Hey guys, wake up! The Amiga has changed quite a bit since
+then.
+
+
+Thanks to everyone who has replied. Any more questions, queries,
+or "CJ/CH, you got it wrong again!" type mail to the email
+address below....
+
+What I want:
+===========
+If anyone wants to spend some time writing something on these
+(especially from a demo coders perspective) I'd be very grateful.
+I would write some of them myself if I had more time...
+
+I'm also looking for an FTP site to use as the official howtocode
+site. If you are an FTP administrator and can offer us this
+facility, please email me!
+
+
+o    68881/2 Programming
+
+o    How to set up an input handler
+
+o    Reading the new Motorola syntax code
+
+
+And anything else you want to write about. Please feel free to write
+additions/replacements for anything already here...
+
+
+And of course, if anyone spots a *really* bad bit of code or
+programming practise, let me know and I'll warn people about
+it here... (Don't send my old code though :-)
+
+I still have not tested the sorting-routines in Vectors.txt,
+but they should work all right as they are. If you spot
+VERY ugly things in them, please report...
+
+And a final comment: For those of you who wrote about
+Amazing Tunes II (a demo I wrote 2 years back) wanting to
+know how to get it to run on a 1Mb chipram machine... Sorry.
+It doesn't. It probaby breaks *every* rule in this docfile.
+I speak from experience. I used to be that evil programmer :-)
+Disassemble the bootblock to see some nightmare code... You can
+probably patch it if you're clever. It was meant to support
+1Mb chipram but it never worked..  If you have 1.5Mb of ram
+(be it chip, fast or a mixture) it should work though...
+
+I had to totally rewrite it recently for The Demo Collection CDROM
+
+It now plays 1000 modules (instead of 20), is much more system
+friendly and works on a (less than) 1Mb chipram CDTV.
+
+And you never know, if enough people ask I may do an AGA version,
+possibly on an Intuition screen... That would be nice!
+
+--------------------------------------------------------------------
+
+This text is Copyright (C) 1993 Share and Enjoy, but may be freely
+distributed in any electronic form. The copyright of contributions
+quoted from other authors remains with the original author. If you would
+like to contribute to this file, email me at the address below...
+
+If you intend to use part or all of HTC in a Public Domain disk
+magazine (or similar), please email me first. I *will* give
+permission freely, but I want to make sure that only the latest
+versions are published. Please also mention your request to
+Carl-Henrik, especially if it concerns Vectors.txt since it will
+be continually updated and debugged for some time from now.
+
+The startup code in this article is freeware and may be used by
+anyone for any purpose.
+
+All trademarks and registered names (Workbench, Kickstart, etc)
+acknowledged.
+
+All opinions expressed in this article are my own, and in no way
+reflect those of anyone else. Please note that many of the
+programming practices described in this text are ONLY applicable
+for demo coding, and should not be used for Games and other
+programming.
+
+I didn't write this for fun, I wrote it for you to use!
+
+If you want to make a contribution please email it to me:
+I prefer plain ASCII set to no more than 75 column width, and
+no tabs if possible (although I can fix text sent to me..)
+
+If you strongly disagree with anything I write, or you want to send me
+some source or demos to test on Amiga 1200/4000 etc, or you have
+questions about Amiga programming, or suggestions for future articles,
+or just want to chat about the best way to optimise automatic copperlist
+generation code (*), then contact me via email at:
+
+Please send mail to comradej@althera.demon.co.uk.
+
+I CAN NOW REPLY TO MAIL!!! At last, thanks to AmigaElm and some ARexx
+I can reply to mail! If you sent me a message and haven't got a reply,
+it's because I lost the message, please mail me again! Sorry about
+the delays before!
+
+I seem to have lost usenet news now, so I haven't read anything from
+alt.sys.amiga.demos since early January.
+
+* - This is a NIGHTMARE. I really feel sorry for the guys who wrote
+MrgCop(). I will never swear at MrgCop() or RethinkDisplay() again :-)
+

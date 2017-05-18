@@ -1,0 +1,146 @@
+GENERIC MAP EDITOR (AGA) V1.15
+------------------------------
+
+
+The editor has 3 separate sections :-
+
+a) Graphics
+
+  This section allow the user to load in dpaint images to be used
+  as pages to create the map from (max currently of 4 pages at a time).
+
+  Page sizes are dependant on the mode of the editor (lo or hi-res).
+  Lo-res mode used 320x256 pages, whereas hi-res mode uses 640x256. 
+  
+  Various operations can be performed on blocks such as rotations
+  combinations etc etc. Operations can be performed between
+  different pages, i.e a block can be moved from page 4 to page 1.
+  The pages can also be saved back again (note - in uncompressed
+  format).
+  
+b) Edit Map
+
+  Where the user can create maps from the pages loaded.
+  The editor allows 2 maps to be loaded to allow copying of chunks
+  from one to the other, lots of other operations are also
+  available such as copy, paste, and fills.
+  8 buffers are available for copying much used data.
+  
+c) Edit Data 
+
+  This was primarily for ABII, each map has a similarily sized
+  byte map which contains alien numbers - these are then created
+  and added to the game as the screen scrolls.
+  This data is currently automatically saved with the map data.
+  
+d) Map SetUp
+
+  This allows the user to define the size of the map, the number
+  of planes the map is to use and the size of the map data (byte
+  or word). 
+  ** The user can re-size maps without destroying the data.   
+  
+The map editor supports project files, anything that has been
+loaded in the graphics section, map secion etc will be re-loaded, 
+so basically load in all the stuff you want and then at the
+main menu screen click on SAVE PROJ -once saved, LOAD PROJ will
+load it back in as saved.
+
+NOTE - quit the map editor to ensure all data is saved away
+properly.
+
+
+The most important part of the map editor is its features, many
+of them are not obvious and are not documented.
+These are as follows:
+
+When in modes 'a'-'c', the 'f' key flips between full/screen and
+button mode + '1','2' and '3' keys move straight into the 3
+modes.
+
+When in map edit mode :
+
+	Left mouse button  - place current block
+	Right mouse button - delete using currently selected
+	                     delete block
+	Click on gridded blocks to choose current block - cursor
+	keys move selected block.
+	
+	Map can be scrolled using joystick or by clicking on arrow
+	buttons (joystick is better as you can edit with the mouse
+	as the same time).
+	Note - the joystick fire button toggles between workbench
+	and the map editor - this was a nasty frig however!!!!!
+
+
+Note - a few of the following can also be selected by clicking on
+buttons and not all of the buttons have a keyboard equivalent.
+
+		                     
+        'j'       - Flip between maps - 2 maps can be loaded
+                    at once (different sizes is ok) - User can
+                    then cut and paste between them
+        
+	'F1'-'F8' - Select current buffer
+		  - 'PICK BUFF' button allow user to save buffers and to
+		    name each one
+	 
+	','	  - Scroll block pages down
+	'.'	  - Scroll block pages up
+	 
+	'p'       - Make currently selected block delete block
+	
+	' '(space)- Selects block under cursor (on map) as
+		    current block to draw with
+	
+	'-'	  - Decrease mouse sensativity
+	'='	  - Increase mouse sensativity
+	
+	SHIFT+'c' - Select copy block mode
+	SHIFT+'p' - Select paste block mode
+	SHIFT+'x' - Select cut block mode
+	
+	  	  - Note when pasting if user holds left mouse down
+	    	    an outline of the block will be displayed and can
+	    	    be moved around before releasing and dropping the block
+	    	    down
+	   	    
+	
+	SHIFT+'f' - Select FILL mode - fills with currently
+	            selected block
+	         
+	'g'	  - Toggle block grid mode on/off
+	
+	'u'	  - Undo last edit, note if an edit is unchangeable
+	 	    (such as inserting a column) then the undo button
+	 	    will dissapear
+	    
+	
+	'z'/'a'   - Move current block page up/down line
+	
+	's'	  - Show whole map - displays a small version
+	            of map - use can move to a location on the
+	            zoomed-out map by first clicking on the
+	            scaled map and then moving a representation
+	            of the screen around. Clicking the mouse
+	            will then move to the location currently
+	            highlighted.		       
+
+PROJECT FILES:
+
+The following details are saved in project files:
+
+All graphic pages in use
+Current map + position
+Spare map + position
+All map buffers
+Current mouse sensativity
+Current Delete Block (picked by 'p')
+Block Data file (for ABII)
+
+	            
+BUGS:
+
+There may possibly be bugs in this version as it has never been extensively
+tested. However the only major addition in this version is the project
+files option, so any debugging should be targeted at that code.

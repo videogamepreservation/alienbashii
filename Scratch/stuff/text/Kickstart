@@ -1,0 +1,65 @@
+           Important Kickstart Differences on Amiga
+           ----------------------------------------
+
+
+There are major differences between the early kickstart machines
+(Kickstart 1.2) and current releases (Kickstart 3.0)
+
+Important differences:
+
+Size: Kickstart 1.2 was 256Kb. Kickstart 3.0 is 512Kb
+
+Offsets: *EVERYTHING* changes. Do not make any assumptions about
+any data in rom, for example reset locations, topaz.font data
+position.
+
+Libraries: Many disk-based libraries under 1.3 are now in ROM, along
+with disk-validator and other things....
+
+Workbench: Workbench is much improved. Use it.
+
+OS Functions: *Many* new OS functions in all libraries. Now much
+easier to use, and faster. Much faster than under 1.2/1.3
+
+
+
+How to check kickstart:
+----------------------
+
+	move.l  4.w,a6
+	move.l	LIB_VERSION(a6),d0
+
+d0 now contains version number. Compare with the following (all
+values in decimal)
+
+
+V0 to V32       - Obsolete! No longer supported.
+
+V33             - Kickstart 1.2
+
+V34             - Kickstart 1.3 (1.2 with autoboot for HD)
+
+V35             - Early beta-kickstart 1.4. Obsolete
+
+V36		- Obsolete! Early V2.00-V2.03 supplied with Amiga 3000
+                  Amiga 3000 owners should upgrade to at least V37
+
+V37		- Kickstart 2.04. Final release version of Kickstart 2
+
+(V38)		- Workbench 2.1 (exec.library should not show this
+                  version. All true V38 libraries are disk based)
+
+V39		- Kickstart 3.0
+
+V40		- Developer Kickstart 3.01 (currently under test)
+
+
+Do NOT compare numbers directly, eg.
+
+	cmp.w	#39,d0
+	beq	kickstart3
+
+Always check for greater or equal... eg.
+
+	cmp.w	#39,d0
+	bge	kickstart3

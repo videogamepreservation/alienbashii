@@ -1,0 +1,305 @@
+USING THE SWITCH COMMANDS
+-------------------------
+
+IMPORTANT - All scripts for switches or activator blocks must end with :
+
+	dc.w	SWITCH_END
+	
+	
+	
+The complete list of commands (so far) are:
+
+		SWITCH_WAIT			
+		SWITCH_COUNT			
+		SWITCH_SET_COUNT
+		SWITCH_ADD_BLOCK		
+		SWITCH_ADD_DESTROY_BLOCK	
+		SWITCH_ADD_ALIEN		
+		SWITCH_ADD_ALIEN_TO_MAP		
+		SWITCH_CHANGE_BLOCK		
+		SWITCH_CHANGE_BLOCK_COLUMN	
+		SWITCH_CHANGE_BLOCK_ROW		
+		SWITCH_DEACTIVATE		
+		SWITCH_REACTIVATE		
+		EVENT_DEACTIVATE		
+		EVENT_REACTIVATE	
+		SWITCH_END		
+			
+	
+
+SWITCH WAIT
+-----------
+
+The command SWITCH_WAIT just does that. It stops the execution of the
+script until the next (alien) frame round. This allows for pauses or delays
+to be introduced - very useful for when doing a complex script (i.e adding
+lots of blocks on screen)
+
+	dc.w	SWITCH_WAIT	;wait for 2 frames
+	dc.w	SWITCH_WAIT
+	
+SWITCH COUNT
+------------
+
+If longer pauses are wanted - to save writing loads of SWITCH_WAIT's, the
+SWITCH_COUNT command can be used - before using the command the 
+SWITCH_SET_COUNT must be used to set the count up :
+
+	dc.w	SWITCH_SET_COUNT
+	dc.w	4			;the frames to wait for
+	dc.w	SWITCH_WAIT		;one of these must be here
+	dc.w	SWITCH_COUNT
+	dc.w	0			;this value will be written over
+					;by the SWITCH_SET_COUNT command
+
+	
+SWITCH ADD BLOCK
+----------------
+
+This command is used when a block is to be changed ON SCREEN, the block
+appear anim will play over the top of this block :
+
+	dc.w	SWITCH_ADD_BLOCK	
+	dc.w	10			;block x position
+	dc.w	14			;block y position
+	dc.w	222			;map block number
+	
+SWITCH ADD DESTROY BLOCK
+------------------------
+
+This command is the same as SWITCH_ADD_BLOCK except that the small block
+explosion is played over the block :
+
+	dc.w	SWITCH_ADD_DESTROY_BLOCK
+	dc.w	10			;block x position
+	dc.w	10			;block y position
+	dc.w	222			;map block number
+	
+SWITCH ADD ALIEN
+----------------
+
+This command will add an alien at a specified x,y co-ordinate - not
+a block co-ordinate :
+
+	dc.w	SWITCH_ADD_ALIEN
+	dc.w	100			;x pixel pos on map
+	dc.w	100			;y pixel pos on map	
+	dc.l	Pig_Alien		;alien structure - see struct list
+	
+SWITCH ADD ALIEN TO MAP
+-----------------------
+
+This command will add an alien at a specified x,y co-ordinate and will
+also add the alien to the map so that if added off screen the alien
+will appear when you get to it - e.g the chest - this is added to the
+map so that when you go off screen and come back it is still there.
+The position specified is a pixel position but this value will be
+converted into a block position by the code for adding it to a map :
+
+	dc.w	SWITCH_ADD_ALIEN_TO_MAP
+	dc.w	Chest			;alien number 
+	dc.w	63*16,55*16		;alien x and y position
+	dc.l	Chest_Object		;alien structure - see struct list
+		
+
+SWITCH CHANGE BLOCK
+-------------------
+
+This command should be used for adding blocks OFF SCREEN :
+
+	dc.w	SWITCH_CHANGE_BLOCK
+	dc.w	63			;block x position
+	dc.w	55			;block y position
+	dc.w	45			;map block number
+
+SWITCH CHANGE BLOCK COLUMN
+--------------------------
+
+This command should be used to change a whole column of OFF SCREEN 
+blocks at once. The number of blocks to change is determined by the
+list length. The list should be terminated with $ffff :
+
+	dc.w	SWITCH_CHANGE_BLOCK_COLUMN
+	dc.w	58,22			;block x and y pos start
+	dc.w	1,1,1,1,1		;list of block nums to change to
+	dc.w	$ffff			;terminator
+	
+e.g this command will change 5 blocks starting at 58,22 to 1 - so
+58,22, 58,23, 58,24, 58,25, 58,26 will be affected
+
+SWITCH CHANGE BLOCK ROW
+-----------------------
+
+This command should be used to change a whole row of OFF SCREEN 
+blocks at once. The number of blocks to change is determined by the
+list length. The list should be terminated with $ffff :
+
+	dc.w	SWITCH_CHANGE_BLOCK_ROW
+	dc.w	58,22			;block x and y pos start
+	dc.w	1,1,1,1,1		;list of block nums to change to
+	dc.w	$ffff			;terminator
+	
+e.g this command will change 5 blocks starting at 58,22 to 1 - so
+58,22, 59,22, 60,22, 61,22, 62,22 will be affected
+						
+
+SWITCH DEACTIVATE
+-----------------
+
+This command will deactivate a switch ( not an event!! ) :
+
+	dc.w	SWITCH_DEACTIVATE
+	dc.w	1			;switch num ( 0-19 )
+
+SWITCH REACTIVATE
+-----------------
+
+This command will reactivate a switch ( not an event!! ) :
+
+	dc.w	SWITCH_REACTIVATE
+	dc.w	1			;switch num ( 0-19 )
+
+EVENT DEACTIVATE
+-----------------
+
+This command will deactivate an event ( not a switch!! ) :
+
+	dc.w	EVENT_DEACTIVATE
+	dc.w	1			;switch num ( 0-59 )
+
+EVENT REACTIVATE
+-----------------
+
+This command will reactivate an event  ( not an switch!! ) :
+
+	dc.w	EVENT_REACTIVATE
+	dc.w	1			;switch num ( 0-59 )
+
+
+SWITCH END
+----------
+	
+This command terminates a script :
+
+	dc.w	SWITCH_END
+
+
+Examples of much needed scripts  
+-------------------------------
+
+To add a pig appear object  :
+
+	dc.w	SWITCH_ADD_ALIEN
+	dc.w	(53*16),(75*16)
+	dc.l	Fast_Appear_Pig_Object
+
+
+To add a gold chest :
+	
+	dc.w	SWITCH_CHANGE_BLOCK
+	dc.w	63,55
+	dc.w	CHEST_SOLID_BLOCK
+	dc.w	SWITCH_ADD_ALIEN
+	dc.w	(63*16)-2,(55*16)-5
+	dc.l	Fast_Appear_Object
+	dc.w	SWITCH_WAIT
+	dc.w	SWITCH_WAIT
+	dc.w	SWITCH_WAIT
+	dc.w	SWITCH_WAIT
+	dc.w	SWITCH_WAIT
+	dc.w	SWITCH_ADD_ALIEN_TO_MAP
+	dc.w	Chest			; alien number 31
+	dc.w	63*16,55*16
+	dc.l	Chest_Object
+
+To add a key chest :
+	
+	dc.w	SWITCH_CHANGE_BLOCK
+	dc.w	63,55
+	dc.w	CHEST_SOLID_BLOCK
+	dc.w	SWITCH_ADD_ALIEN
+	dc.w	(63*16)-2,(55*16)-5
+	dc.l	Fast_Appear_Object
+	dc.w	SWITCH_WAIT
+	dc.w	SWITCH_WAIT
+	dc.w	SWITCH_WAIT
+	dc.w	SWITCH_WAIT
+	dc.w	SWITCH_WAIT
+	dc.w	SWITCH_ADD_ALIEN_TO_MAP
+	dc.w	Key_Chest			; alien number 67
+	dc.w	63*16,55*16
+	dc.l	Key_Chest_Object
+
+
+
+
+
+
+
+
+
+The current list of alien numbers are :
+
+	Hostage			-	13
+	Pig_Alien		-	14
+	RedJumpFlower		-	23
+	BlueJumpFlower		-	24
+	Key			-	25
+	Spikey			-	28
+	Gold Chest		-	31
+	Silver_Chest		-	38
+	Fish_Bob_Left		-	44
+	Fish_Bob_Right		-	45
+	Statue_Head		-	48
+	Wasp_Nest		-	49
+	FishUpBob		-	51
+	Pig_Generator		-	55 ( 5 skulls )
+	Pig_Generator2		-	56 ( 4 skulls )
+	Pig_Generator3		-	57 ( 3 skulls )	 
+	Pig_Generator4		-	58 ( 2 skulls )
+	Pig_Generator5		-	59 ( 1 skulls )
+	Pig_GeneratorNoSkull	-	60
+	Maggot			-	61
+	Maggot speed 2		-	62
+	Maggot speed 3		-	63
+	Maggot_Generator	-	64
+	End Level Generator	-	66
+	Key_Chest		-	67
+	Fire_Key		-	68
+	GoldMoney1		-	69
+	SilverMoney1		-	70
+	GoldMoney lots 2	-	71
+	SilverMoney lots 2	-	72
+	
+If you would rather use names rather than numbers when using SWITCH_ADD
+_ALIEN_TO_MAP then look in alien_data.s as this contains a complete list.
+	
+
+
+Current list of alien structures are ( used when using SWITCH_ADD_ALIEN
+and SWITCH_ADD_ALIEN_TO_MAP ) :
+
+	Standard_Key_Object
+	Chest_Object
+	Silver_Chest_Object
+	Generic_Splash_Object
+	Appear_Object
+	Fast_Appear_Object						
+	Small_Gold_Coin
+	Small_Silver_Coin
+	Small_Gold_Coins
+	Small_Silver_Coins
+	Pig_Alien
+	Spikey_Object
+	Fish_Bob_Left_Object
+	Fish_Bob_Right_Object
+	Statue_Object
+	WaspNest_Object
+	FishUpBob_Alien
+	Pig_Generator_Object
+	Maggot_Alien
+	Maggot_Alien2
+	Maggot_Alien3
+	Fast_Appear_Pig_Object
+	Maggot_Generator_Alien
+	Key_Chest

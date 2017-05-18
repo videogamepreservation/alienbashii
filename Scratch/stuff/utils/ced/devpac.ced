@@ -1,0 +1,27 @@
+/*   DEVPAC.CED - Macro to call Hisoft Devpac V3 from CygnusEd
+     Saves waiting for Hisoft to fix their editor :-)
+
+*/
+options results
+LF = '0A'X
+
+rawkey 17 128
+
+status 19
+FileName = result
+
+
+getstring 'ram:test'  '"Destination file name:"'
+TestFile = result
+
+if (TestFile = "RESULT") then exit 0
+
+TestFile = "-o" || TestFile
+
+address command "genam > ram:errors " Filename TestFile
+
+address command "ed ram:errors -o"
+
+jump to file "errors"
+
+editable file

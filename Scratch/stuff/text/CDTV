@@ -1,0 +1,56 @@
+                         Programming CDTV/A570
+                         ---------------------
+
+Until now there has been no CDTV documentation available to the
+public... Well, here are a few tips..... (My CDTV megademo will
+be ready this year. I promise!!!)
+
+
+
+Using CDTV.DEVICE
+-----------------
+
+The CDTV can be controlled by the CDTV.DEVICE, which is
+a standard Amiga device.
+
+Open the CDTV.DEVICE as standard, and issue commands to it
+to play audio, read data, etc...
+
+Examine cdtv.i, included in the source directory.
+
+For example: To play track 2 on an audio CD in a CDTV, use
+the following:
+
+	include	"cdtv.i"
+
+	...... your code here ......
+
+     	move.l	MyCDTVRequest,a1        ; set this up as for any
+					; other device
+	move.w	#CDTV_PLAYTRACK,IO_COMMAND(a1)
+
+	move.l	#2,IO_OFFSET(a1)	; track number
+	move.l	#1,IO_LENGTH(a1)	; number of tracks to play
+
+	move.l  4.w,a6
+	jsr	_LVOSendIO(a6)		; send command
+
+
+
+If you need to gain extra memory, you can shut down the cdtv.device
+(apparently) by issuing a CDTV_STOP command to the device.
+
+
+
+A570
+----
+
+
+You can tell if you are running on an A570 (as opposed to CDTV)
+by:
+
+	FindResident("A690ID")
+
+If it returns NULL then it's not A570, if it returns an address
+then its an A570
+

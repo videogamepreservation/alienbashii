@@ -1,0 +1,5746 @@
+******************************************************************
+*****  CUSTOM BUTTON STRUCTURES AND ASSOCIATED GRAPHIC DATA  *****
+******************************************************************
+
+
+FileButton
+	dc.w	160
+	dc.w	10
+	dc.w	160
+	dc.w	10
+	dc.w	1
+	dc.l	0
+	dc.l	File_Click_Graphics
+
+MenuButton
+	dc.w	112
+	dc.w	10
+	dc.w	112
+	dc.w	10
+	dc.w	1
+	dc.l	0
+	dc.l	File_Click_Graphics
+
+
+MapSelectButton
+	dc.w	128
+	dc.w	128
+	dc.w	128
+	dc.w	128
+	dc.w	0
+	dc.l	0
+	dc.l	0
+
+
+
+
+buffername_get
+	dc.w	(7*16)
+	dc.w    13
+	dc.w	(7*16)
+	dc.w	13
+	dc.w	1
+	dc.l	0
+	dc.l	File_Click_Graphics
+
+
+
+EnterFileButton
+	dc.w	240
+	dc.w	10
+	dc.w	240
+	dc.w	10
+	dc.w	1
+	dc.l	0
+	dc.l	File_Click_Graphics
+
+File_Click_Graphics	dcb.b	38*10,$ff
+
+
+Help_Click_Graphics	dcb.b	25*10,$ff
+			
+
+arrow_up
+	dc.w	32
+	dc.w	11
+	dc.w	21
+	dc.w	11
+	dc.w	3
+	dc.l	arrow_up_graphics
+	dc.l	arrow_up_graphics
+
+arrow_down
+	dc.w	32
+	dc.w	11
+	dc.w	21
+	dc.w	11
+	dc.w	3
+	dc.l	arrow_down_graphics
+	dc.l	arrow_down_graphics
+
+
+arrow_left
+	dc.w	32
+	dc.w	11
+	dc.w	22
+	dc.w	11
+	dc.w	3
+	dc.l	arrow_left_graphics
+	dc.l	arrow_left_graphics
+
+arrow_right
+	dc.w	32
+	dc.w	11
+	dc.w	22
+	dc.w	11
+	dc.w	3
+	dc.l	arrow_right_graphics
+	dc.l	arrow_right_graphics
+
+
+ok_custom_button
+	dc.w	64
+	dc.w	13
+	dc.w	62
+	dc.w	13
+	dc.w	3
+	dc.l	ok_button_graphics
+	dc.l	ok_clicked_button_graphics
+
+
+apply_custom_button
+	dc.w	32
+	dc.w	12
+	dc.w	32
+	dc.w	12
+	dc.w	3
+	dc.l	applyup
+	dc.l	applydown
+
+applyup
+	incbin	"data/appup.bin"
+applydown
+	incbin	"data/appdown.bin"	
+	even
+	
+remove_custom_button
+	dc.w	32
+	dc.w	12
+	dc.w	32
+	dc.w	12
+	dc.w	3
+	dc.l	remup
+	dc.l	remdown
+
+remup
+	incbin	"data/delup.bin"
+remdown
+	incbin	"data/deldown.bin"
+	even
+
+setgroup_custom_button
+	dc.w	32
+	dc.w	12
+	dc.w	32
+	dc.w	12
+	dc.w	3
+	dc.l	setup_gfx
+	dc.l	setdown_gfx
+
+setup_gfx
+	incbin	"data/setup.bin"
+setdown_gfx
+	incbin	"data/setdown.bin"
+	even
+
+
+df0_custom_button
+	dc.w	32
+	dc.w	13
+	dc.w	26
+	dc.w	13
+	dc.w	3
+	dc.l	df0new
+	dc.l	df0newc
+	
+df1_custom_button
+	dc.w	32
+	dc.w	13
+	dc.w	26
+	dc.w	13
+	dc.w	3
+	dc.l	df1new
+	dc.l	df1newc
+	
+		
+dh0_custom_button
+	dc.w	32
+	dc.w	13
+	dc.w	26
+	dc.w	13
+	dc.w	3
+	dc.l	dh0new
+	dc.l	dh1newc
+
+	
+dh1_custom_button
+	dc.w	32
+	dc.w	13
+	dc.w	26
+	dc.w	13
+	dc.w	3
+	dc.l	dh1new
+	dc.l	dh1newc
+
+	
+ram_custom_button
+	dc.w	32
+	dc.w	13
+	dc.w	26
+	dc.w	13
+	dc.w	3
+	dc.l	ramnew
+	dc.l	ramnewc
+
+	
+rad_custom_button
+	dc.w	32
+	dc.w	13
+	dc.w	26
+	dc.w	13
+	dc.w	3
+	dc.l	radnew
+	dc.l	radnewc
+
+
+load_custom_button
+	dc.w	64
+	dc.w	13
+	dc.w	62
+	dc.w	13
+	dc.w	3
+	dc.l	loadgrap
+	dc.l	loadclickedgrap
+	
+save_custom_button
+	dc.w	64
+	dc.w	13
+	dc.w	62
+	dc.w	13
+	dc.w	3
+	dc.l	savegrap
+	dc.l	saveclickedgrap
+
+
+	
+
+parent_custom_button
+	dc.w	64
+	dc.w	13
+	dc.w	62
+	dc.w	13
+	dc.w	3
+	dc.l	parent_graphics
+	dc.l	parent_clicked_graphics
+
+cancel_custom_button
+	dc.w	64
+	dc.w	13
+	dc.w	62
+	dc.w	13
+	dc.w	3
+	dc.l	cancel_graphics
+	dc.l	cancel_clicked_graphics
+
+tick_box_button
+	dc.w 	16
+	dc.w 	7
+	dc.w	14
+	dc.w 	7
+	dc.w	3
+	dc.l	tick_box
+	dc.l	tick_clicked_box
+
+plus_button
+	dc.w 	16
+	dc.w 	7
+	dc.w	14
+	dc.w 	7
+	dc.w	3
+	dc.l	plus_graphics
+	dc.l	plus_clicked_graphics
+
+minus_button
+	dc.w 	16
+	dc.w 	7
+	dc.w	14
+	dc.w 	7
+	dc.w	3
+	dc.l	minus_graphics
+	dc.l	minus_clicked_graphics
+
+screen_custom_button
+	dc.w 	0
+	dc.w    0
+	dc.w	320
+screen_custom_y	
+	dc.w 	192
+	dc.w	1
+	dc.l	0
+	dc.l	0
+
+
+map_screen_custom_button
+	dc.w 	0
+	dc.w    0
+	dc.w	320
+map_screen_custom_y	
+	dc.w 	192-32
+	dc.w	1
+	dc.l	0
+	dc.l	0
+	
+map_blocks_custom_button
+	dc.w 	0
+	dc.w    0
+	dc.w	320
+	dc.w 	32
+	dc.w	1
+	dc.l	0
+	dc.l	0
+
+	
+page1_button
+	dc.w 	32
+	dc.w 	13
+	dc.w	28
+	dc.w 	13
+	dc.w	3
+	dc.l	page1_graphics
+	dc.l	page1_clicked_graphics
+	
+page2_button
+	dc.w 	32
+	dc.w 	13
+	dc.w	28
+	dc.w 	13
+	dc.w	3
+	dc.l	page2_graphics
+	dc.l	page2_clicked_graphics
+
+page3_button
+	dc.w 	32
+	dc.w 	13
+	dc.w	28
+	dc.w 	13
+	dc.w	3
+	dc.l	page3_graphics
+	dc.l	page3_clicked_graphics
+
+page4_button
+	dc.w 	32
+	dc.w 	13
+	dc.w	28
+	dc.w 	13
+	dc.w	3
+	dc.l	page4_graphics
+	dc.l	page4_clicked_graphics
+
+colour0_button
+	dc.w 	16
+	dc.w 	8
+	dc.w	8
+	dc.w 	8
+	dc.w	5
+	dc.l	palette_button0
+	dc.l	palette_clicked_button0
+	
+colour1_button
+	dc.w 	16
+	dc.w 	8
+	dc.w	8
+	dc.w 	8
+	dc.w	5
+	dc.l	palette_button1
+	dc.l	palette_clicked_button1
+
+colour2_button
+	dc.w 	16
+	dc.w 	8
+	dc.w	8
+	dc.w 	8
+	dc.w	5
+	dc.l	palette_button2
+	dc.l	palette_clicked_button2
+	
+colour3_button
+	dc.w 	16
+	dc.w 	8
+	dc.w	8
+	dc.w 	8
+	dc.w	5
+	dc.l	palette_button3
+	dc.l	palette_clicked_button3
+
+colour4_button
+	dc.w 	16
+	dc.w 	8
+	dc.w	8
+	dc.w 	8
+	dc.w	5
+	dc.l	palette_button4
+	dc.l	palette_clicked_button4
+
+colour5_button
+	dc.w 	16
+	dc.w 	8
+	dc.w	8
+	dc.w 	8
+	dc.w	5
+	dc.l	palette_button5
+	dc.l	palette_clicked_button5
+
+colour6_button
+	dc.w 	16
+	dc.w 	8
+	dc.w	8
+	dc.w 	8
+	dc.w	5
+	dc.l	palette_button6
+	dc.l	palette_clicked_button6
+
+
+colour7_button
+	dc.w 	16
+	dc.w 	8
+	dc.w	8
+	dc.w 	8
+	dc.w	5
+	dc.l	palette_button7
+	dc.l	palette_clicked_button7
+	
+colour8_button
+	dc.w 	16
+	dc.w 	8
+	dc.w	8
+	dc.w 	8
+	dc.w	5
+	dc.l	palette_button8
+	dc.l	palette_clicked_button8
+colour9_button
+	dc.w 	16
+	dc.w 	8
+	dc.w	8
+	dc.w 	8
+	dc.w	5
+	dc.l	palette_button9
+	dc.l	palette_clicked_button9
+colour10_button
+	dc.w 	16
+	dc.w 	8
+	dc.w	8
+	dc.w 	8
+	dc.w	5
+	dc.l	palette_button10
+	dc.l	palette_clicked_button10
+colour11_button
+	dc.w 	16
+	dc.w 	8
+	dc.w	8
+	dc.w 	8
+	dc.w	5
+	dc.l	palette_button11
+	dc.l	palette_clicked_button11
+colour12_button
+	dc.w 	16
+	dc.w 	8
+	dc.w	8
+	dc.w 	8
+	dc.w	5
+	dc.l	palette_button12
+	dc.l	palette_clicked_button12
+colour13_button
+	dc.w 	16
+	dc.w 	8
+	dc.w	8
+	dc.w 	8
+	dc.w	5
+	dc.l	palette_button13
+	dc.l	palette_clicked_button13
+colour14_button
+	dc.w 	16
+	dc.w 	8
+	dc.w	8
+	dc.w 	8
+	dc.w	5
+	dc.l	palette_button14
+	dc.l	palette_clicked_button14
+colour15_button
+	dc.w 	16
+	dc.w 	8
+	dc.w	8
+	dc.w 	8
+	dc.w	5
+	dc.l	palette_button15
+	dc.l	palette_clicked_button15
+colour16_button
+	dc.w 	16
+	dc.w 	8
+	dc.w	8
+	dc.w 	8
+	dc.w	5
+	dc.l	palette_button16
+	dc.l	palette_clicked_button16
+colour17_button
+	dc.w 	16
+	dc.w 	8
+	dc.w	8
+	dc.w 	8
+	dc.w	5
+	dc.l	palette_button17
+	dc.l	palette_clicked_button17
+colour18_button
+	dc.w 	16
+	dc.w 	8
+	dc.w	8
+	dc.w 	8
+	dc.w	5
+	dc.l	palette_button18
+	dc.l	palette_clicked_button18
+colour19_button
+	dc.w 	16
+	dc.w 	8
+	dc.w	8
+	dc.w 	8
+	dc.w	5
+	dc.l	palette_button19
+	dc.l	palette_clicked_button19
+colour20_button
+	dc.w 	16
+	dc.w 	8
+	dc.w	8
+	dc.w 	8
+	dc.w	5
+	dc.l	palette_button20
+	dc.l	palette_clicked_button20
+colour21_button
+	dc.w 	16
+	dc.w 	8
+	dc.w	8
+	dc.w 	8
+	dc.w	5
+	dc.l	palette_button21
+	dc.l	palette_clicked_button21
+colour22_button
+	dc.w 	16
+	dc.w 	8
+	dc.w	8
+	dc.w 	8
+	dc.w	5
+	dc.l	palette_button22
+	dc.l	palette_clicked_button22
+colour23_button
+	dc.w 	16
+	dc.w 	8
+	dc.w	8
+	dc.w 	8
+	dc.w	5
+	dc.l	palette_button23
+	dc.l	palette_clicked_button23
+colour24_button
+	dc.w 	16
+	dc.w 	8
+	dc.w	8
+	dc.w 	8
+	dc.w	5
+	dc.l	palette_button24
+	dc.l	palette_clicked_button24
+colour25_button
+	dc.w 	16
+	dc.w 	8
+	dc.w	8
+	dc.w 	8
+	dc.w	5
+	dc.l	palette_button25
+	dc.l	palette_clicked_button25
+colour26_button
+	dc.w 	16
+	dc.w 	8
+	dc.w	8
+	dc.w 	8
+	dc.w	5
+	dc.l	palette_button26
+	dc.l	palette_clicked_button26
+colour27_button
+	dc.w 	16
+	dc.w 	8
+	dc.w	8
+	dc.w 	8
+	dc.w	5
+	dc.l	palette_button27
+	dc.l	palette_clicked_button27
+colour28_button
+	dc.w 	16
+	dc.w 	8
+	dc.w	8
+	dc.w 	8
+	dc.w	5
+	dc.l	palette_button28
+	dc.l	palette_clicked_button28
+colour29_button
+	dc.w 	16
+	dc.w 	8
+	dc.w	8
+	dc.w 	8
+	dc.w	5
+	dc.l	palette_button29
+	dc.l	palette_clicked_button29
+colour30_button
+	dc.w 	16
+	dc.w 	8
+	dc.w	8
+	dc.w 	8
+	dc.w	5
+	dc.l	palette_button30
+	dc.l	palette_clicked_button30
+
+colour31_button
+	dc.w 	16
+	dc.w 	8
+	dc.w	8
+	dc.w 	8
+	dc.w	5
+	dc.l	palette_button31
+	dc.l	palette_clicked_button31
+
+
+
+arrow_up_graphics
+ DC.W $0000,$0000
+ DC.W $0020,$0000
+ DC.W $00F8,$0000
+ DC.W $03FE,$0000
+ DC.W $0FFF,$8000
+ DC.W $3FFF,$E000
+ DC.W $01FC,$0000
+ DC.W $01FC,$0000
+ DC.W $01FC,$0000
+ DC.W $01DC,$0000
+ DC.W $0306,$0000
+
+ DC.W $0060,$0000
+ DC.W $01C0,$0000
+ DC.W $0700,$0000
+ DC.W $1C00,$0000
+ DC.W $7000,$0000
+ DC.W $C000,$0000
+ DC.W $0600,$0000
+ DC.W $0600,$0000
+ DC.W $0600,$0000
+ DC.W $0600,$0000
+ DC.W $0400,$0000
+
+ DC.W $0070,$0000
+ DC.W $01DC,$0000
+ DC.W $0707,$0000
+ DC.W $1C01,$C000
+ DC.W $7000,$7000
+ DC.W $C000,$1800
+ DC.W $0603,$0000
+ DC.W $0603,$0000
+ DC.W $0603,$0000
+ DC.W $0603,$0000
+ DC.W $0401,$0000
+
+
+arrow_down_graphics
+ DC.W $0306,$0000
+ DC.W $01DC,$0000
+ DC.W $01FC,$0000
+ DC.W $01FC,$0000
+ DC.W $01FC,$0000
+ DC.W $3FFF,$E000
+ DC.W $0FFF,$8000
+ DC.W $03FE,$0000
+ DC.W $00F8,$0000
+ DC.W $0020,$0000
+ DC.W $0000,$0000
+
+
+ DC.W $0400,$0000
+ DC.W $0600,$0000
+ DC.W $0600,$0000
+ DC.W $0600,$0000
+ DC.W $0600,$0000
+ DC.W $C000,$0000
+ DC.W $7000,$0000
+ DC.W $1C00,$0000
+ DC.W $0700,$0000
+ DC.W $01C0,$0000
+ DC.W $0060,$0000
+
+ 
+ DC.W $0401,$0000
+ DC.W $0603,$0000
+ DC.W $0603,$0000
+ DC.W $0603,$0000
+ DC.W $0603,$0000
+ DC.W $C000,$1800
+ DC.W $7000,$7000
+ DC.W $1C01,$C000
+ DC.W $0707,$0000
+ DC.W $01DC,$0000
+ DC.W $0070,$0000
+
+
+
+arrow_left_graphics
+ DC.W $0000,$0000
+ DC.W $0030,$0000
+ DC.W $00F0,$0000
+ DC.W $03F0,$0C00
+ DC.W $0FFF,$F000
+ DC.W $3FFF,$C000
+ DC.W $0FFF,$F000
+ DC.W $03F0,$0C00
+ DC.W $00F0,$0000
+ DC.W $0030,$0000
+ DC.W $0000,$0000
+
+ DC.W $0030,$0000
+ DC.W $00C0,$0000
+ DC.W $0300,$0000
+ DC.W $0C0F,$F000
+ DC.W $3000,$0000
+ DC.W $C000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+
+
+ DC.W $0030,$0000
+ DC.W $00C0,$0000
+ DC.W $0300,$0000
+ DC.W $0C0F,$F000
+ DC.W $3000,$0000
+ DC.W $C000,$0000
+ DC.W $3000,$0000
+ DC.W $0C0F,$F000
+ DC.W $0300,$0000
+ DC.W $00C0,$0000
+ DC.W $0030,$0000
+
+arrow_right_graphics
+ DC.W $0000,$0000
+ DC.W $0030,$0000
+ DC.W $003C,$0000
+ DC.W $C03F,$0000
+ DC.W $3FFF,$C000
+ DC.W $0FFF,$F000
+ DC.W $3FFF,$C000
+ DC.W $C03F,$0000
+ DC.W $003C,$0000
+ DC.W $0030,$0000
+ DC.W $0000,$0000
+
+
+ DC.W $0030,$0000
+ DC.W $000C,$0000
+ DC.W $0003,$0000
+ DC.W $3FC0,$C000
+ DC.W $0000,$3000
+ DC.W $0000,$0C00
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+
+ 
+ DC.W $0030,$0000
+ DC.W $000C,$0000
+ DC.W $0003,$0000
+ DC.W $3FC0,$C000
+ DC.W $0000,$3000
+ DC.W $0000,$0C00
+ DC.W $0000,$3000
+ DC.W $3FC0,$C000
+ DC.W $0003,$0000
+ DC.W $000C,$0000
+ DC.W $0030,$0000
+
+
+****end of arrow graphics
+
+
+
+df0_graphics
+ DC.W $7FFF,$FFFF,$FFFF,$FFFC
+ DC.W $7FFF,$FFFF,$FFFF,$FFF0
+ DC.W $FFFF,$FFFF,$FFFF,$FFC0
+ DC.W $FFFF,$0701,$C3FF,$FFC0
+ DC.W $FFFF,$9399,$99E7,$FFC0
+ DC.W $FFFF,$999F,$91E7,$FFC0
+ DC.W $FFFF,$9987,$81FF,$FFC0
+ DC.W $FFFF,$999F,$89FF,$FFC0
+ DC.W $FFFF,$939F,$99E7,$FFC0
+ DC.W $FFFF,$070F,$C3E7,$FFC0
+ DC.W $FFFF,$FFFF,$FFFF,$FFC0
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $8000,$0000,$0000,$0000
+
+ DC.W $FFFF,$FFFF,$FFFF,$FFFC
+ DC.W $FFFF,$FFFF,$FFFF,$FFF0
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $8000,$0000,$0000,$0000
+
+
+ DC.W $8000,$0000,$0000,$0000
+ DC.W $8000,$0000,$0000,$000C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $1FFF,$FFFF,$FFFF,$FFFC
+ DC.W $7FFF,$FFFF,$FFFF,$FFFC
+
+
+parent_graphics
+ DC.W $7FFF,$FFFF,$FFFF,$FFFC
+ DC.W $7FFF,$FFFF,$FFFF,$FFF0
+ DC.W $FFFF,$FFFF,$FFFF,$FFC0
+ DC.W $FE07,$CE06,$0273,$03C0
+ DC.W $FF33,$8733,$3233,$4BC0
+ DC.W $FF33,$8733,$3E13,$CFC0
+ DC.W $FF07,$3307,$0E43,$CFC0
+ DC.W $FF3F,$0327,$3E63,$CFC0
+ DC.W $FF3E,$7933,$3273,$CFC0
+ DC.W $FE1E,$7838,$0273,$87C0
+ DC.W $FFFF,$FFFF,$FFFF,$FFC0
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $8000,$0000,$0000,$0000
+
+ DC.W $FFFF,$FFFF,$FFFF,$FFFC
+ DC.W $FFFF,$FFFF,$FFFF,$FFF0
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $8000,$0000,$0000,$0000
+
+ DC.W $8000,$0000,$0000,$0000
+ DC.W $8000,$0000,$0000,$000C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $1FFF,$FFFF,$FFFF,$FFFC
+ DC.W $7FFF,$FFFF,$FFFF,$FFFC
+
+cancel_graphics
+ DC.W $7FFF,$FFFF,$FFFF,$FFFC
+ DC.W $7FFF,$FFFF,$FFFF,$FFF0
+ DC.W $FFFF,$FFFF,$FFFF,$FFC0
+ DC.W $FF87,$CE73,$8602,$1FC0
+ DC.W $FF33,$8633,$3333,$3FC0
+ DC.W $FE7F,$8612,$7F3F,$3FC0
+ DC.W $FE7F,$3242,$7F0F,$3FC0
+ DC.W $FE7F,$0262,$7F3F,$3BC0
+ DC.W $FF32,$7873,$3333,$33C0
+ DC.W $FF86,$7873,$8602,$03C0
+ DC.W $FFFF,$FFFF,$FFFF,$FFC0
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $8000,$0000,$0000,$0000
+
+ DC.W $FFFF,$FFFF,$FFFF,$FFFC
+ DC.W $FFFF,$FFFF,$FFFF,$FFF0
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $8000,$0000,$0000,$0000
+
+ DC.W $8000,$0000,$0000,$0000
+ DC.W $8000,$0000,$0000,$000C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $1FFF,$FFFF,$FFFF,$FFFC
+ DC.W $7FFF,$FFFF,$FFFF,$FFFC
+
+
+df1_graphics
+ DC.W $7FFF,$FFFF,$FFFF,$FFFC
+ DC.W $7FFF,$FFFF,$FFFF,$FFF0
+ DC.W $FFFF,$FFFF,$FFFF,$FFC0
+ DC.W $FFFF,$8380,$F3FF,$FFC0
+ DC.W $FFFF,$C9CC,$E3F3,$FFC0
+ DC.W $FFFF,$CCCF,$F3F3,$FFC0
+ DC.W $FFFF,$CCC3,$F3FF,$FFC0
+ DC.W $FFFF,$CCCF,$F3FF,$FFC0
+ DC.W $FFFF,$C9CF,$F3F3,$FFC0
+ DC.W $FFFF,$8387,$C0F3,$FFC0
+ DC.W $FFFF,$FFFF,$FFFF,$FFC0
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $8000,$0000,$0000,$0000
+
+ DC.W $FFFF,$FFFF,$FFFF,$FFFC
+ DC.W $FFFF,$FFFF,$FFFF,$FFF0
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $8000,$0000,$0000,$0000
+
+ DC.W $8000,$0000,$0000,$0000
+ DC.W $8000,$0000,$0000,$000C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $1FFF,$FFFF,$FFFF,$FFFC
+ DC.W $7FFF,$FFFF,$FFFF,$FFFC
+
+
+dh0_graphics
+ DC.W $7FFF,$FFFF,$FFFF,$FFFC
+ DC.W $7FFF,$FFFF,$FFFF,$FFF0
+ DC.W $FFFF,$FFFF,$FFFF,$FFC0
+ DC.W $FFFF,$83CC,$E1FF,$FFC0
+ DC.W $FFFF,$C9CC,$CCF3,$FFC0
+ DC.W $FFFF,$CCCC,$C8F3,$FFC0
+ DC.W $FFFF,$CCC0,$C0FF,$FFC0
+ DC.W $FFFF,$CCCC,$C4FF,$FFC0
+ DC.W $FFFF,$C9CC,$CCF3,$FFC0
+ DC.W $FFFF,$83CC,$E1F3,$FFC0
+ DC.W $FFFF,$FFFF,$FFFF,$FFC0
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $8000,$0000,$0000,$0000
+
+
+ DC.W $FFFF,$FFFF,$FFFF,$FFFC
+ DC.W $FFFF,$FFFF,$FFFF,$FFF0
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $8000,$0000,$0000,$0000
+
+ 
+ DC.W $8000,$0000,$0000,$0000
+ DC.W $8000,$0000,$0000,$000C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $1FFF,$FFFF,$FFFF,$FFFC
+ DC.W $7FFF,$FFFF,$FFFF,$FFFC
+
+
+df0_clicked_graphics
+ DC.W $FFFF,$FFFF,$FFFF,$FFF8
+ DC.W $FFFF,$FFFF,$FFFF,$FFF8
+ DC.W $FFFF,$FFFF,$FFFF,$FFF8
+ DC.W $FFFE,$0E03,$87FF,$FFF8
+ DC.W $FFFF,$2733,$33CF,$FFF8
+ DC.W $FFFF,$333F,$23CF,$FFF8
+ DC.W $FFFF,$330F,$03FF,$FFF8
+ DC.W $FFFF,$333F,$13FF,$FFF8
+ DC.W $FFFF,$273F,$33CF,$FFF8
+ DC.W $FFFE,$0E1F,$87CF,$FFF8
+ DC.W $FFFF,$FFFF,$FFFF,$FFF8
+ DC.W $FFFF,$FFFF,$FFFF,$FFF8
+ DC.W $FFFF,$FFFF,$FFFF,$FFF8
+
+ ds.w	4*13*2
+
+load_button_clicked_graphics
+ DC.W $FFFF,$FFFF,$FFFF,$FFF8
+ DC.W $FFFF,$FFFF,$FFFF,$FFF8
+ DC.W $FFFF,$FFFF,$FFFF,$FFF8
+ DC.W $FFFC,$3F1F,$9C1F,$FFF8
+ DC.W $FFFE,$7E4F,$0E4F,$FFF8
+ DC.W $FFFE,$7CE7,$0E67,$FFF8
+ DC.W $FFFE,$7CE6,$6667,$FFF8
+ DC.W $FFFE,$74E6,$0667,$FFF8
+ DC.W $FFFE,$664C,$F24F,$FFF8
+ DC.W $FFFC,$071C,$F01F,$FFF8
+ DC.W $FFFF,$FFFF,$FFFF,$FFF8
+ DC.W $FFFF,$FFFF,$FFFF,$FFF8
+ DC.W $FFFF,$FFFF,$FFFF,$FFF8
+
+ ds.w	4*13*2
+
+parent_clicked_graphics
+ DC.W $FFFF,$FFFF,$FFFF,$FFF8
+ DC.W $FFFF,$FFFF,$FFFF,$FFF8
+ DC.W $FFFF,$FFFF,$FFFF,$FFF8
+ DC.W $FC0F,$9C0C,$04E6,$07F8
+ DC.W $FE67,$0E66,$6466,$97F8
+ DC.W $FE67,$0E66,$7C27,$9FF8
+ DC.W $FE0E,$660E,$1C87,$9FF8
+ DC.W $FE7E,$064E,$7CC7,$9FF8
+ DC.W $FE7C,$F266,$64E7,$9FF8
+ DC.W $FC3C,$F070,$04E7,$0FF8
+ DC.W $FFFF,$FFFF,$FFFF,$FFF8
+ DC.W $FFFF,$FFFF,$FFFF,$FFF8
+ DC.W $FFFF,$FFFF,$FFFF,$FFF8
+
+ ds.w	4*13*2
+cancel_clicked_graphics
+ DC.W $FFFF,$FFFF,$FFFF,$FFF8
+ DC.W $FFFF,$FFFF,$FFFF,$FFF8
+ DC.W $FFFF,$FFFF,$FFFF,$FFF8
+ DC.W $FF0F,$9CE7,$0C04,$3FF8
+ DC.W $FE67,$0C66,$6666,$7FF8
+ DC.W $FCFF,$0C24,$FE7E,$7FF8
+ DC.W $FCFE,$6484,$FE1E,$7FF8
+ DC.W $FCFE,$04C4,$FE7E,$77F8
+ DC.W $FE64,$F0E6,$6666,$67F8
+ DC.W $FF0C,$F0E7,$0C04,$07F8
+ DC.W $FFFF,$FFFF,$FFFF,$FFF8
+ DC.W $FFFF,$FFFF,$FFFF,$FFF8
+ DC.W $FFFF,$FFFF,$FFFF,$FFF8
+
+ ds.w	4*13*2
+df1_clicked_graphics
+ DC.W $FFFF,$FFFF,$FFFF,$FFF8
+ DC.W $FFFF,$FFFF,$FFFF,$FFF8
+ DC.W $FFFF,$FFFF,$FFFF,$FFF8
+ DC.W $FFFF,$0701,$E7FF,$FFF8
+ DC.W $FFFF,$9399,$C7E7,$FFF8
+ DC.W $FFFF,$999F,$E7E7,$FFF8
+ DC.W $FFFF,$9987,$E7FF,$FFF8
+ DC.W $FFFF,$999F,$E7FF,$FFF8
+ DC.W $FFFF,$939F,$E7E7,$FFF8
+ DC.W $FFFF,$070F,$81E7,$FFF8
+ DC.W $FFFF,$FFFF,$FFFF,$FFF8
+ DC.W $FFFF,$FFFF,$FFFF,$FFF8
+ DC.W $FFFF,$FFFF,$FFFF,$FFF8
+
+ ds.w	4*13*2
+dh0_clicked_graphics
+ DC.W $FFFF,$FFFF,$FFFF,$FFF8
+ DC.W $FFFF,$FFFF,$FFFF,$FFF8
+ DC.W $FFFF,$FFFF,$FFFF,$FFF8
+ DC.W $FFFF,$0799,$C3FF,$FFF8
+ DC.W $FFFF,$9399,$99E7,$FFF8
+ DC.W $FFFF,$9999,$91E7,$FFF8
+ DC.W $FFFF,$9981,$81FF,$FFF8
+ DC.W $FFFF,$9999,$89FF,$FFF8
+ DC.W $FFFF,$9399,$99E7,$FFF8
+ DC.W $FFFF,$0799,$C3E7,$FFF8
+ DC.W $FFFF,$FFFF,$FFFF,$FFF8
+ DC.W $FFFF,$FFFF,$FFFF,$FFF8
+ DC.W $FFFF,$FFFF,$FFFF,$FFF8
+
+ ds.w	4*13*2
+
+
+ok_button_graphics
+ DC.W $7FFF,$FFFF,$FFFF,$FFFC
+ DC.W $7FFF,$FFFF,$FFFF,$FFF0
+ DC.W $FFFF,$FFFF,$FFFF,$FFC0
+ DC.W $FFFF,$FF1C,$67FF,$FFC0
+ DC.W $FFFF,$FE4E,$67FF,$FFC0
+ DC.W $FFFF,$FCE6,$4FFF,$FFC0
+ DC.W $FFFF,$FCE6,$1FFF,$FFC0
+ DC.W $FFFF,$FCE6,$4FFF,$FFC0
+ DC.W $FFFF,$FE4E,$67FF,$FFC0
+ DC.W $FFFF,$FF1C,$67FF,$FFC0
+ DC.W $FFFF,$FFFF,$FFFF,$FFC0
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $8000,$0000,$0000,$0000
+
+ DC.W $FFFF,$FFFF,$FFFF,$FFFC
+ DC.W $FFFF,$FFFF,$FFFF,$FFF0
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $8000,$0000,$0000,$0000
+
+ DC.W $8000,$0000,$0000,$0000
+ DC.W $8000,$0000,$0000,$000C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $1FFF,$FFFF,$FFFF,$FFFC
+ DC.W $7FFF,$FFFF,$FFFF,$FFFC
+
+
+ok_clicked_button_graphics
+ DC.W $FFFF,$FFFF,$FFFF,$FFFC
+ DC.W $FFFF,$FFFF,$FFFF,$FFFC
+ DC.W $FFFF,$FFFF,$FFFF,$FFFC
+ DC.W $FFFF,$FF1C,$67FF,$FFFC
+ DC.W $FFFF,$FE4E,$67FF,$FFFC
+ DC.W $FFFF,$FCE6,$4FFF,$FFFC
+ DC.W $FFFF,$FCE6,$1FFF,$FFFC
+ DC.W $FFFF,$FCE6,$4FFF,$FFFC
+ DC.W $FFFF,$FE4E,$67FF,$FFFC
+ DC.W $FFFF,$FF1C,$67FF,$FFFC
+ DC.W $FFFF,$FFFF,$FFFF,$FFFC
+ DC.W $FFFF,$FFFF,$FFFF,$FFFC
+ DC.W $FFFF,$FFFF,$FFFF,$FFFC
+
+ ds.w	4*13*2
+
+
+*end of file requestor graphics
+
+
+tick_box
+
+ DC.W $3FFC
+ DC.W $FFF0
+ DC.W $FFF0
+ DC.W $FFF0
+ DC.W $FFF0
+ DC.W $FFF0
+ DC.W $C000
+
+ DC.W $FFFC
+ DC.W $E000
+ DC.W $E000
+ DC.W $E000
+ DC.W $E000
+ DC.W $E000
+ DC.W $C000
+
+ DC.W $C000
+ DC.W $000C
+ DC.W $000C
+ DC.W $000C
+ DC.W $000C
+ DC.W $000C
+ DC.W $3FFC
+
+ DC.W $3FFC
+ DC.W $FFF0
+ DC.W $FFF0
+ DC.W $FFF0
+ DC.W $FFF0
+ DC.W $FFF0
+ DC.W $C000
+
+
+tick_clicked_box
+
+ DC.W $3FFC
+ DC.W $FFF0
+ DC.W $FFF0
+ DC.W $FFF0
+ DC.W $FFF0
+ DC.W $FFF0
+ DC.W $C000
+
+ DC.W $FFFC
+ DC.W $E030
+ DC.W $E060
+ DC.W $E0C0
+ DC.W $F980
+ DC.W $E600
+ DC.W $C000
+
+ DC.W $C000
+ DC.W $003C
+ DC.W $006C
+ DC.W $00CC
+ DC.W $198C
+ DC.W $060C
+ DC.W $3FFC
+
+
+*end of tick box
+
+plus_graphics
+ DC.W $3FFC
+ DC.W $FFF0
+ DC.W $FFF0
+ DC.W $FFF0
+ DC.W $FFF0
+ DC.W $FFF0
+ DC.W $C000
+
+ DC.W $FFFC
+ DC.W $E300
+ DC.W $E300
+ DC.W $FFE0
+ DC.W $E300
+ DC.W $E300
+ DC.W $C000
+
+ DC.W $C000
+ DC.W $030C
+ DC.W $030C
+ DC.W $1FEC
+ DC.W $030C
+ DC.W $030C
+ DC.W $3FFC
+minus_graphics
+ DC.W $3FFC
+ DC.W $FFF0
+ DC.W $FFF0
+ DC.W $FFF0
+ DC.W $FFF0
+ DC.W $FFF0
+ DC.W $C000
+
+ DC.W $FFFC
+ DC.W $E000
+ DC.W $E000
+ DC.W $EFE0
+ DC.W $E000
+ DC.W $E000
+ DC.W $C000
+
+ DC.W $C000
+ DC.W $000C
+ DC.W $000C
+ DC.W $0FEC
+ DC.W $000C
+ DC.W $000C
+ DC.W $3FFC
+
+plus_clicked_graphics
+ DC.W $FFFC
+ DC.W $FFFC
+ DC.W $FFFC
+ DC.W $FFFC
+ DC.W $FFFC
+ DC.W $FFFC
+ DC.W $FFFC
+
+ DC.W $0000
+ DC.W $0300
+ DC.W $0300
+ DC.W $1FE0
+ DC.W $0300
+ DC.W $0300
+ DC.W $0000
+
+ DC.W $0000
+ DC.W $0300
+ DC.W $0300
+ DC.W $1FE0
+ DC.W $0300
+ DC.W $0300
+ DC.W $0000
+
+minus_clicked_graphics
+ DC.W $FFFC
+ DC.W $FFFC
+ DC.W $FFFC
+ DC.W $FFFC
+ DC.W $FFFC
+ DC.W $FFFC
+ DC.W $FFFC
+
+ DC.W $0000
+ DC.W $0000
+ DC.W $0000
+ DC.W $0FE0
+ DC.W $0000
+ DC.W $0000
+ DC.W $0000
+
+ DC.W $0000
+ DC.W $0000
+ DC.W $0000
+ DC.W $0FE0
+ DC.W $0000
+ DC.W $0000
+ DC.W $0000
+
+*end of plus minus graphics
+
+*This output was produced by DARKLITE's iff convertor.
+
+
+
+
+LOB
+ DC.W $7FFF,$0000
+ DC.W $7FFF,$0000
+ DC.W $7FFF,$0000
+ DC.W $7FFF,$0000
+ DC.W $7FFF,$0000
+ DC.W $7FFF,$0000
+ DC.W $7FFF,$0000
+ DC.W $7FFF,$0000
+ DC.W $7FFF,$0000
+ DC.W $7FFF,$0000
+ DC.W $7FFF,$0000
+ DC.W $7FFF,$0000
+ DC.W $7FFF,$0000
+ DC.W $7FFF,$0000
+ DC.W $7FFF,$0000
+ DC.W $7FFF,$0000
+ DC.W $7FFF,$0000
+ DC.W $7FFF,$0000
+ DC.W $7FFF,$0000
+ DC.W $7FFF,$0000
+ DC.W $7FFF,$0000
+ DC.W $7FFF,$0000
+ DC.W $7FFF,$0000
+ DC.W $7FFF,$0000
+ DC.W $7FFF,$0000
+ DC.W $7FFF,$0000
+ DC.W $7FFF,$0000
+ DC.W $7FFF,$0000
+ DC.W $7FFF,$0000
+ DC.W $7FFF,$0000
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+
+LOBBitplane2
+
+ DC.W $7FFF,$0000
+ DC.W $7FFF,$0000
+ DC.W $7FFF,$0000
+ DC.W $7FFF,$0000
+ DC.W $7FFF,$0000
+ DC.W $7FFF,$0000
+ DC.W $7FFF,$0000
+ DC.W $7FFF,$0000
+ DC.W $7FFF,$0000
+ DC.W $7FFF,$0000
+ DC.W $7FFF,$0000
+ DC.W $7FFF,$0000
+ DC.W $7FFF,$0000
+ DC.W $7FFF,$0000
+ DC.W $7FFF,$0000
+ DC.W $7FFF,$0000
+ DC.W $7FFF,$0000
+ DC.W $7FFF,$0000
+ DC.W $7FFF,$0000
+ DC.W $7FFF,$0000
+ DC.W $7FFF,$0000
+ DC.W $7FFF,$0000
+ DC.W $7FFF,$0000
+ DC.W $7FFF,$0000
+ DC.W $7FFF,$0000
+ DC.W $7FFF,$0000
+ DC.W $7FFF,$0000
+ DC.W $7FFF,$0000
+ DC.W $7FFF,$0000
+ DC.W $7FFF,$0000
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+
+lobc
+ DC.W $7FFF,$0000
+ DC.W $7FFF,$0000
+ DC.W $7FFF,$0000
+ DC.W $7FFF,$0000
+ DC.W $7FFF,$0000
+ DC.W $7FFF,$0000
+ DC.W $7FFF,$0000
+ DC.W $7FFF,$0000
+ DC.W $7FFF,$0000
+ DC.W $7FFF,$0000
+ DC.W $7FFF,$0000
+ DC.W $7FFF,$0000
+ DC.W $7FFF,$0000
+ DC.W $7FFF,$0000
+ DC.W $7FFF,$0000
+ DC.W $7FFF,$0000
+ DC.W $7FFF,$0000
+ DC.W $7FFF,$0000
+ DC.W $7FFF,$0000
+ DC.W $7FFF,$0000
+ DC.W $7FFF,$0000
+ DC.W $7FFF,$0000
+ DC.W $7FFF,$0000
+ DC.W $7FFF,$0000
+ DC.W $7FFF,$0000
+ DC.W $7FFF,$0000
+ DC.W $7FFF,$0000
+ DC.W $7FFF,$0000
+ DC.W $7FFF,$0000
+ DC.W $7FFF,$0000
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+
+lobcBitplane2
+
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+
+rob
+ DC.W $007F,$FF00
+ DC.W $007F,$FF00
+ DC.W $007F,$FF00
+ DC.W $007F,$FF00
+ DC.W $007F,$FF00
+ DC.W $007F,$FF00
+ DC.W $007F,$FF00
+ DC.W $007F,$FF00
+ DC.W $007F,$FF00
+ DC.W $007F,$FF00
+ DC.W $007F,$FF00
+ DC.W $007F,$FF00
+ DC.W $007F,$FF00
+ DC.W $007F,$FF00
+ DC.W $007F,$FF00
+ DC.W $007F,$FF00
+ DC.W $007F,$FF00
+ DC.W $007F,$FF00
+ DC.W $007F,$FF00
+ DC.W $007F,$FF00
+ DC.W $007F,$FF00
+ DC.W $007F,$FF00
+ DC.W $007F,$FF00
+ DC.W $007F,$FF00
+ DC.W $007F,$FF00
+ DC.W $007F,$FF00
+ DC.W $007F,$FF00
+ DC.W $007F,$FF00
+ DC.W $007F,$FF00
+ DC.W $007F,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+
+robBitplane2
+
+ DC.W $007F,$FF00
+ DC.W $007F,$FF00
+ DC.W $007F,$FF00
+ DC.W $007F,$FF00
+ DC.W $007F,$FF00
+ DC.W $007F,$FF00
+ DC.W $007F,$FF00
+ DC.W $007F,$FF00
+ DC.W $007F,$FF00
+ DC.W $007F,$FF00
+ DC.W $007F,$FF00
+ DC.W $007F,$FF00
+ DC.W $007F,$FF00
+ DC.W $007F,$FF00
+ DC.W $007F,$FF00
+ DC.W $007F,$FF00
+ DC.W $007F,$FF00
+ DC.W $007F,$FF00
+ DC.W $007F,$FF00
+ DC.W $007F,$FF00
+ DC.W $007F,$FF00
+ DC.W $007F,$FF00
+ DC.W $007F,$FF00
+ DC.W $007F,$FF00
+ DC.W $007F,$FF00
+ DC.W $007F,$FF00
+ DC.W $007F,$FF00
+ DC.W $007F,$FF00
+ DC.W $007F,$FF00
+ DC.W $007F,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+
+
+
+robc
+ DC.W $007F,$FF00
+ DC.W $007F,$FF00
+ DC.W $007F,$FF00
+ DC.W $007F,$FF00
+ DC.W $007F,$FF00
+ DC.W $007F,$FF00
+ DC.W $007F,$FF00
+ DC.W $007F,$FF00
+ DC.W $007F,$FF00
+ DC.W $007F,$FF00
+ DC.W $007F,$FF00
+ DC.W $007F,$FF00
+ DC.W $007F,$FF00
+ DC.W $007F,$FF00
+ DC.W $007F,$FF00
+ DC.W $007F,$FF00
+ DC.W $007F,$FF00
+ DC.W $007F,$FF00
+ DC.W $007F,$FF00
+ DC.W $007F,$FF00
+ DC.W $007F,$FF00
+ DC.W $007F,$FF00
+ DC.W $007F,$FF00
+ DC.W $007F,$FF00
+ DC.W $007F,$FF00
+ DC.W $007F,$FF00
+ DC.W $007F,$FF00
+ DC.W $007F,$FF00
+ DC.W $007F,$FF00
+ DC.W $007F,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+
+robcBitplane2
+
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+
+ib
+ DC.W $007E,$0000
+ DC.W $007E,$0000
+ DC.W $007E,$0000
+ DC.W $007E,$0000
+ DC.W $007E,$0000
+ DC.W $007E,$0000
+ DC.W $007E,$0000
+ DC.W $007E,$0000
+ DC.W $007E,$0000
+ DC.W $007E,$0000
+ DC.W $007E,$0000
+ DC.W $007E,$0000
+ DC.W $007E,$0000
+ DC.W $007E,$0000
+ DC.W $007E,$0000
+ DC.W $007E,$0000
+ DC.W $007E,$0000
+ DC.W $007E,$0000
+ DC.W $007E,$0000
+ DC.W $007E,$0000
+ DC.W $007E,$0000
+ DC.W $007E,$0000
+ DC.W $007E,$0000
+ DC.W $007E,$0000
+ DC.W $007E,$0000
+ DC.W $007E,$0000
+ DC.W $007E,$0000
+ DC.W $007E,$0000
+ DC.W $007E,$0000
+ DC.W $007E,$0000
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+
+ibBitplane2
+
+ DC.W $007E,$0000
+ DC.W $007E,$0000
+ DC.W $007E,$0000
+ DC.W $007E,$0000
+ DC.W $007E,$0000
+ DC.W $007E,$0000
+ DC.W $007E,$0000
+ DC.W $007E,$0000
+ DC.W $007E,$0000
+ DC.W $007E,$0000
+ DC.W $007E,$0000
+ DC.W $007E,$0000
+ DC.W $007E,$0000
+ DC.W $007E,$0000
+ DC.W $007E,$0000
+ DC.W $007E,$0000
+ DC.W $007E,$0000
+ DC.W $007E,$0000
+ DC.W $007E,$0000
+ DC.W $007E,$0000
+ DC.W $007E,$0000
+ DC.W $007E,$0000
+ DC.W $007E,$0000
+ DC.W $007E,$0000
+ DC.W $007E,$0000
+ DC.W $007E,$0000
+ DC.W $007E,$0000
+ DC.W $007E,$0000
+ DC.W $007E,$0000
+ DC.W $007E,$0000
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ibc
+ DC.W $007E,$0000
+ DC.W $007E,$0000
+ DC.W $007E,$0000
+ DC.W $007E,$0000
+ DC.W $007E,$0000
+ DC.W $007E,$0000
+ DC.W $007E,$0000
+ DC.W $007E,$0000
+ DC.W $007E,$0000
+ DC.W $007E,$0000
+ DC.W $007E,$0000
+ DC.W $007E,$0000
+ DC.W $007E,$0000
+ DC.W $007E,$0000
+ DC.W $007E,$0000
+ DC.W $007E,$0000
+ DC.W $007E,$0000
+ DC.W $007E,$0000
+ DC.W $007E,$0000
+ DC.W $007E,$0000
+ DC.W $007E,$0000
+ DC.W $007E,$0000
+ DC.W $007E,$0000
+ DC.W $007E,$0000
+ DC.W $007E,$0000
+ DC.W $007E,$0000
+ DC.W $007E,$0000
+ DC.W $007E,$0000
+ DC.W $007E,$0000
+ DC.W $007E,$0000
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+ DC.W $7FFF,$FF00
+
+ibcBitplane2
+
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+
+bn
+ DC.W $3000,$0000
+ DC.W $3000,$0000
+ DC.W $3000,$0000
+ DC.W $3000,$0000
+ DC.W $3000,$0000
+ DC.W $3000,$0000
+ DC.W $3000,$0000
+ DC.W $3000,$0000
+ DC.W $3000,$0000
+ DC.W $3000,$0000
+ DC.W $3000,$0000
+ DC.W $3000,$0000
+ DC.W $3000,$0000
+ DC.W $3000,$0000
+ DC.W $3000,$0000
+ DC.W $3000,$0000
+ DC.W $3000,$0000
+ DC.W $3000,$0000
+ DC.W $3000,$0000
+ DC.W $3000,$0000
+ DC.W $3000,$0000
+ DC.W $3000,$0000
+ DC.W $3000,$0000
+ DC.W $3000,$0000
+ DC.W $3000,$0000
+ DC.W $3000,$0000
+ DC.W $3000,$0000
+ DC.W $3000,$0000
+ DC.W $3FFE,$0000
+ DC.W $6000,$0000
+
+bnBitplane2
+
+ DC.W $3000,$0000
+ DC.W $3000,$0000
+ DC.W $3000,$0000
+ DC.W $3000,$0000
+ DC.W $3000,$0000
+ DC.W $3000,$0000
+ DC.W $3000,$0000
+ DC.W $3000,$0000
+ DC.W $3000,$0000
+ DC.W $3000,$0000
+ DC.W $3000,$0000
+ DC.W $3000,$0000
+ DC.W $3000,$0000
+ DC.W $3000,$0000
+ DC.W $3000,$0000
+ DC.W $3000,$0000
+ DC.W $3000,$0000
+ DC.W $3000,$0000
+ DC.W $3000,$0000
+ DC.W $3000,$0000
+ DC.W $3000,$0000
+ DC.W $3000,$0000
+ DC.W $3000,$0000
+ DC.W $3000,$0000
+ DC.W $3000,$0000
+ DC.W $3000,$0000
+ DC.W $3000,$0000
+ DC.W $3000,$0000
+ DC.W $3FFE,$0000
+ DC.W $6000,$0000
+
+bnc
+ DC.W $FFFF,$C000
+ DC.W $FFFF,$C000
+ DC.W $FFFF,$C000
+ DC.W $FFFF,$C000
+ DC.W $FFFF,$C000
+ DC.W $FFFF,$C000
+ DC.W $FFFF,$C000
+ DC.W $FFFF,$C000
+ DC.W $FFFF,$C000
+ DC.W $FFFF,$C000
+ DC.W $FFFF,$C000
+ DC.W $FFFF,$C000
+ DC.W $FFFF,$C000
+ DC.W $FFFF,$C000
+ DC.W $FFFF,$C000
+ DC.W $FFFF,$C000
+ DC.W $FFFF,$C000
+ DC.W $FFFF,$C000
+ DC.W $FFFF,$C000
+ DC.W $FFFF,$C000
+ DC.W $FFFF,$C000
+ DC.W $FFFF,$C000
+ DC.W $FFFF,$C000
+ DC.W $FFFF,$C000
+ DC.W $FFFF,$C000
+ DC.W $FFFF,$C000
+ DC.W $FFFF,$C000
+ DC.W $FFFF,$C000
+ DC.W $FFFF,$C000
+ DC.W $FFFF,$C000
+
+bncBitplane2
+
+ DC.W $3000,$0000
+ DC.W $3000,$0000
+ DC.W $3000,$0000
+ DC.W $3000,$0000
+ DC.W $3000,$0000
+ DC.W $3000,$0000
+ DC.W $3000,$0000
+ DC.W $3000,$0000
+ DC.W $3000,$0000
+ DC.W $3000,$0000
+ DC.W $3000,$0000
+ DC.W $3000,$0000
+ DC.W $3000,$0000
+ DC.W $3000,$0000
+ DC.W $3000,$0000
+ DC.W $3000,$0000
+ DC.W $3000,$0000
+ DC.W $3000,$0000
+ DC.W $3000,$0000
+ DC.W $3000,$0000
+ DC.W $3000,$0000
+ DC.W $3000,$0000
+ DC.W $3000,$0000
+ DC.W $3000,$0000
+ DC.W $3000,$0000
+ DC.W $3000,$0000
+ DC.W $3000,$0000
+ DC.W $3000,$0000
+ DC.W $3FFE,$0000
+ DC.W $6000,$0000
+
+**end of keyboard
+
+
+chan1_graphics
+ DC.W $7FFF,$FFFF,$FFFF,$FFFC
+ DC.W $7FFF,$FFFF,$FFFF,$FFF0
+ DC.W $FFFF,$FFFF,$FFFF,$FFC0
+ DC.W $FF87,$CFFF,$8E02,$03C0
+ DC.W $FF33,$8FFF,$2733,$33C0
+ DC.W $FE7F,$CFFE,$733F,$3FC0
+ DC.W $FE7F,$CFFE,$730F,$0FC0
+ DC.W $FE7F,$CFFE,$733F,$3FC0
+ DC.W $FF33,$CFFF,$273F,$3FC0
+ DC.W $FF87,$03FF,$8E1E,$1FC0
+ DC.W $FFFF,$FFFF,$FFFF,$FFC0
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $8000,$0000,$0000,$0000
+
+ DC.W $FFFF,$FFFF,$FFFF,$FFFC
+ DC.W $FFFF,$FFFF,$FFFF,$FFF0
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $8000,$0000,$0000,$0000
+
+ DC.W $8000,$0000,$0000,$0000
+ DC.W $8000,$0000,$0000,$000C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $1FFF,$FFFF,$FFFF,$FFFC
+ DC.W $7FFF,$FFFF,$FFFF,$FFFC
+
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0078,$3000,$71FD,$FC00
+ DC.W $00CC,$7000,$D8CC,$CC00
+ DC.W $0180,$3001,$8CC0,$C000
+ DC.W $0180,$3001,$8CF0,$F000
+ DC.W $0180,$3001,$8CC0,$C000
+ DC.W $00CC,$3000,$D8C0,$C000
+ DC.W $0078,$FC00,$71E1,$E000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+
+chan2_graphics
+ DC.W $7FFF,$FFFF,$FFFF,$FFFC
+ DC.W $7FFF,$FFFF,$FFFF,$FFF0
+ DC.W $FFFF,$FFFF,$FFFF,$FFC0
+ DC.W $FFFF,$FFFF,$FFFF,$FFC0
+ DC.W $FFFF,$FFFF,$FFFF,$FFC0
+ DC.W $FFFF,$FFFF,$FFFF,$FFC0
+ DC.W $FFFF,$FFFF,$FFFF,$FFC0
+ DC.W $FFFF,$FFFF,$FFFF,$FFC0
+ DC.W $FFFF,$FFFF,$FFFF,$FFC0
+ DC.W $FFFF,$FFFF,$FFFF,$FFC0
+ DC.W $FFFF,$FFFF,$FFFF,$FFC0
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $8000,$0000,$0000,$0000
+
+ DC.W $FFFF,$FFFF,$FFFF,$FFFC
+ DC.W $FFFF,$FFFF,$FFFF,$FFF0
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $8000,$0000,$0000,$0000
+
+ DC.W $8000,$0000,$0000,$0000
+ DC.W $8000,$0000,$0000,$000C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $1FFF,$FFFF,$FFFF,$FFFC
+ DC.W $7FFF,$FFFF,$FFFF,$FFFC
+
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0078,$7800,$71FD,$FC00
+ DC.W $00CC,$CC00,$D8CC,$CC00
+ DC.W $0180,$0C01,$8CC0,$C000
+ DC.W $0180,$3801,$8CF0,$F000
+ DC.W $0180,$6001,$8CC0,$C000
+ DC.W $00CC,$CC00,$D8C0,$C000
+ DC.W $0078,$FC00,$71E1,$E000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+
+chan3_graphics
+ DC.W $7FFF,$FFFF,$FFFF,$FFFC
+ DC.W $7FFF,$FFFF,$FFFF,$FFF0
+ DC.W $FFFF,$FFFF,$FFFF,$FFC0
+ DC.W $FF87,$87FF,$8E02,$03C0
+ DC.W $FF33,$33FF,$2733,$33C0
+ DC.W $FE7F,$F3FE,$733F,$3FC0
+ DC.W $FE7F,$C7FE,$730F,$0FC0
+ DC.W $FE7F,$F3FE,$733F,$3FC0
+ DC.W $FF33,$33FF,$273F,$3FC0
+ DC.W $FF87,$87FF,$8E1E,$1FC0
+ DC.W $FFFF,$FFFF,$FFFF,$FFC0
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $8000,$0000,$0000,$0000
+
+ DC.W $FFFF,$FFFF,$FFFF,$FFFC
+ DC.W $FFFF,$FFFF,$FFFF,$FFF0
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E078,$7800,$71FD,$FC00
+ DC.W $E0CC,$CC00,$D8CC,$CC00
+ DC.W $E180,$0C01,$8CC0,$C000
+ DC.W $E180,$3801,$8CF0,$F000
+ DC.W $E180,$0C01,$8CC0,$C000
+ DC.W $E0CC,$CC00,$D8C0,$C000
+ DC.W $E078,$7800,$71E1,$E000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $8000,$0000,$0000,$0000
+
+ DC.W $8000,$0000,$0000,$0000
+ DC.W $8000,$0000,$0000,$000C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $1FFF,$FFFF,$FFFF,$FFFC
+ DC.W $7FFF,$FFFF,$FFFF,$FFFC
+
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0078,$7800,$71FD,$FC00
+ DC.W $00CC,$CC00,$D8CC,$CC00
+ DC.W $0180,$0C01,$8CC0,$C000
+ DC.W $0180,$3801,$8CF0,$F000
+ DC.W $0180,$0C01,$8CC0,$C000
+ DC.W $00CC,$CC00,$D8C0,$C000
+ DC.W $0078,$7800,$71E1,$E000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+
+chan4_graphics
+ DC.W $7FFF,$FFFF,$FFFF,$FFFC
+ DC.W $7FFF,$FFFF,$FFFF,$FFF0
+ DC.W $FFFF,$FFFF,$FFFF,$FFC0
+ DC.W $FFFF,$FFFF,$FFFF,$FFC0
+ DC.W $FFFF,$FFFF,$FFFF,$FFC0
+ DC.W $FFFF,$FFFF,$FFFF,$FFC0
+ DC.W $FFFF,$FFFF,$FFFF,$FFC0
+ DC.W $FFFF,$FFFF,$FFFF,$FFC0
+ DC.W $FFFF,$FFFF,$FFFF,$FFC0
+ DC.W $FFFF,$FFFF,$FFFF,$FFC0
+ DC.W $FFFF,$FFFF,$FFFF,$FFC0
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $8000,$0000,$0000,$0000
+
+ DC.W $FFFF,$FFFF,$FFFF,$FFFC
+ DC.W $FFFF,$FFFF,$FFFF,$FFF0
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E078,$3800,$71FD,$FC00
+ DC.W $E0CC,$7800,$D8CC,$CC00
+ DC.W $E180,$D801,$8CC0,$C000
+ DC.W $E181,$9801,$8CF0,$F000
+ DC.W $E181,$FC01,$8CC0,$C000
+ DC.W $E0CC,$1800,$D8C0,$C000
+ DC.W $E078,$3C00,$71E1,$E000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $8000,$0000,$0000,$0000
+
+
+ DC.W $8000,$0000,$0000,$0000
+ DC.W $8000,$0000,$0000,$000C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $1FFF,$FFFF,$FFFF,$FFFC
+ DC.W $7FFF,$FFFF,$FFFF,$FFFC
+
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0078,$3800,$71FD,$FC00
+ DC.W $00CC,$7800,$D8CC,$CC00
+ DC.W $0180,$D801,$8CC0,$C000
+ DC.W $0181,$9801,$8CF0,$F000
+ DC.W $0181,$FC01,$8CC0,$C000
+ DC.W $00CC,$1800,$D8C0,$C000
+ DC.W $0078,$3C00,$71E1,$E000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+
+
+
+octave_shift
+ DC.W $7FFF,$FFFF,$FFFF,$FFFC
+ DC.W $7FFF,$FFFF,$FFFF,$FFF0
+ DC.W $FFFF,$FFFF,$FFFF,$FFC0
+ DC.W $F8F8,$703F,$F87F,$F840
+ DC.W $F273,$34BF,$F33F,$F300
+ DC.W $E727,$FCFF,$FF3F,$FF00
+ DC.W $E727,$FCFF,$FC70,$3C40
+ DC.W $E727,$FCFF,$F9FF,$FF00
+ DC.W $F273,$3CFF,$F33F,$F300
+ DC.W $F8F8,$787F,$F03F,$F840
+ DC.W $FFFF,$FFFF,$FFFF,$FFC0
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $8000,$0000,$0000,$0000
+
+ DC.W $FFFF,$FFFF,$FFFF,$FFFC
+ DC.W $FFFF,$FFFF,$FFFF,$FFF0
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $8000,$0000,$0000,$0000
+
+ DC.W $8000,$0000,$0000,$0000
+ DC.W $8000,$0000,$0000,$000C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $1FFF,$FFFF,$FFFF,$FFFC
+ DC.W $7FFF,$FFFF,$FFFF,$FFFC
+keyboard_active
+ DC.W $7FFF,$FFFF,$FFFF,$FFFC
+ DC.W $7FFF,$FFFF,$FFFF,$FFF0
+ DC.W $FFFF,$FFFF,$FFFF,$FFC0
+ DC.W $FE32,$07FF,$8E02,$03C0
+ DC.W $FF33,$33FF,$2733,$33C0
+ DC.W $FF27,$33FE,$733F,$3FC0
+ DC.W $FF0F,$07FE,$730F,$0FC0
+ DC.W $FF27,$33FE,$733F,$3FC0
+ DC.W $FF33,$33FF,$273F,$3FC0
+ DC.W $FE32,$07FF,$8E1E,$1FC0
+ DC.W $FFFF,$FFFF,$FFFF,$FFC0
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $8000,$0000,$0000,$0000
+
+ DC.W $FFFF,$FFFF,$FFFF,$FFFC
+ DC.W $FFFF,$FFFF,$FFFF,$FFF0
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $8000,$0000,$0000,$0000
+
+ DC.W $8000,$0000,$0000,$0000
+ DC.W $8000,$0000,$0000,$000C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $1FFF,$FFFF,$FFFF,$FFFC
+ DC.W $7FFF,$FFFF,$FFFF,$FFFC
+
+
+chan1_graphicsc
+ DC.W $FFFF,$FFFF,$FFFF,$FFF8
+ DC.W $FFFF,$FFFF,$FFFF,$FFF8
+ DC.W $FFFF,$FFFF,$FFFF,$FFF8
+ DC.W $FFF0,$F9FF,$F1CE,$7FF8
+ DC.W $FFE6,$71FF,$E4C6,$7FF8
+ DC.W $FFCF,$F9FF,$CE42,$7FF8
+ DC.W $FFCF,$F9FF,$CE48,$7FF8
+ DC.W $FFCF,$F9FF,$CE4C,$7FF8
+ DC.W $FFE6,$79FF,$E4CE,$7FF8
+ DC.W $FFF0,$E07F,$F1CE,$7FF8
+ DC.W $FFFF,$FFFF,$FFFF,$FFF8
+ DC.W $FFFF,$FFFF,$FFFF,$FFF8
+ DC.W $FFFF,$FFFF,$FFFF,$FFF8
+
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $000F,$0600,$0E31,$8000
+ DC.W $0019,$8E00,$1B39,$8000
+ DC.W $0030,$0600,$31BD,$8000
+ DC.W $0030,$0600,$31B7,$8000
+ DC.W $0030,$0600,$31B3,$8000
+ DC.W $0019,$8600,$1B31,$8000
+ DC.W $000F,$1F80,$0E31,$8000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+
+chan2_graphicsc
+ DC.W $FFFF,$FFFF,$FFFF,$FFF8
+ DC.W $FFFF,$FFFF,$FFFF,$FFF8
+ DC.W $FFFF,$FFFF,$FFFF,$FFF8
+ DC.W $FFFF,$FFFF,$FFFF,$FFF8
+ DC.W $FFFF,$FFFF,$FFFF,$FFF8
+ DC.W $FFFF,$FFFF,$FFFF,$FFF8
+ DC.W $FFFF,$FFFF,$FFFF,$FFF8
+ DC.W $FFFF,$FFFF,$FFFF,$FFF8
+ DC.W $FFFF,$FFFF,$FFFF,$FFF8
+ DC.W $FFFF,$FFFF,$FFFF,$FFF8
+ DC.W $FFFF,$FFFF,$FFFF,$FFF8
+ DC.W $FFFF,$FFFF,$FFFF,$FFF8
+ DC.W $FFFF,$FFFF,$FFFF,$FFF8
+
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $000F,$0F00,$0E31,$8000
+ DC.W $0019,$9980,$1B39,$8000
+ DC.W $0030,$0180,$31BD,$8000
+ DC.W $0030,$0700,$31B7,$8000
+ DC.W $0030,$0C00,$31B3,$8000
+ DC.W $0019,$9980,$1B31,$8000
+ DC.W $000F,$1F80,$0E31,$8000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+
+chan3_graphicsc
+ DC.W $FFFF,$FFFF,$FFFF,$FFF8
+ DC.W $FFFF,$FFFF,$FFFF,$FFF8
+ DC.W $FFFF,$FFFF,$FFFF,$FFF8
+ DC.W $FFF0,$F0FF,$F1CE,$7FF8
+ DC.W $FFE6,$667F,$E4C6,$7FF8
+ DC.W $FFCF,$FE7F,$CE42,$7FF8
+ DC.W $FFCF,$F8FF,$CE48,$7FF8
+ DC.W $FFCF,$FE7F,$CE4C,$7FF8
+ DC.W $FFE6,$667F,$E4CE,$7FF8
+ DC.W $FFF0,$F0FF,$F1CE,$7FF8
+ DC.W $FFFF,$FFFF,$FFFF,$FFF8
+ DC.W $FFFF,$FFFF,$FFFF,$FFF8
+ DC.W $FFFF,$FFFF,$FFFF,$FFF8
+
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $000F,$0F00,$0E31,$8000
+ DC.W $0019,$9980,$1B39,$8000
+ DC.W $0030,$0180,$31BD,$8000
+ DC.W $0030,$0700,$31B7,$8000
+ DC.W $0030,$0180,$31B3,$8000
+ DC.W $0019,$9980,$1B31,$8000
+ DC.W $000F,$0F00,$0E31,$8000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $000F,$0F00,$0E31,$8000
+ DC.W $0019,$9980,$1B39,$8000
+ DC.W $0030,$0180,$31BD,$8000
+ DC.W $0030,$0700,$31B7,$8000
+ DC.W $0030,$0180,$31B3,$8000
+ DC.W $0019,$9980,$1B31,$8000
+ DC.W $000F,$0F00,$0E31,$8000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+
+chan4_graphicsc
+ DC.W $FFFF,$FFFF,$FFFF,$FFF8
+ DC.W $FFFF,$FFFF,$FFFF,$FFF8
+ DC.W $FFFF,$FFFF,$FFFF,$FFF8
+ DC.W $FFFF,$FFFF,$FFFF,$FFF8
+ DC.W $FFFF,$FFFF,$FFFF,$FFF8
+ DC.W $FFFF,$FFFF,$FFFF,$FFF8
+ DC.W $FFFF,$FFFF,$FFFF,$FFF8
+ DC.W $FFFF,$FFFF,$FFFF,$FFF8
+ DC.W $FFFF,$FFFF,$FFFF,$FFF8
+ DC.W $FFFF,$FFFF,$FFFF,$FFF8
+ DC.W $FFFF,$FFFF,$FFFF,$FFF8
+ DC.W $FFFF,$FFFF,$FFFF,$FFF8
+ DC.W $FFFF,$FFFF,$FFFF,$FFF8
+
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $000F,$0700,$0E31,$8000
+ DC.W $0019,$8F00,$1B39,$8000
+ DC.W $0030,$1B00,$31BD,$8000
+ DC.W $0030,$3300,$31B7,$8000
+ DC.W $0030,$3F80,$31B3,$8000
+ DC.W $0019,$8300,$1B31,$8000
+ DC.W $000F,$0780,$0E31,$8000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $000F,$0700,$0E31,$8000
+ DC.W $0019,$8F00,$1B39,$8000
+ DC.W $0030,$1B00,$31BD,$8000
+ DC.W $0030,$3300,$31B7,$8000
+ DC.W $0030,$3F80,$31B3,$8000
+ DC.W $0019,$8300,$1B31,$8000
+ DC.W $000F,$0780,$0E31,$8000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+
+
+octave_shiftc
+ DC.W $FFFF,$FFFF,$FFFF,$FFF8
+ DC.W $FFFF,$FFFF,$FFFF,$FFF8
+ DC.W $FFFF,$FFFF,$FFFF,$FFF8
+ DC.W $F8F8,$703F,$FCFF,$F878
+ DC.W $F273,$34BF,$F8FF,$F338
+ DC.W $E727,$FCFF,$FCFF,$FF38
+ DC.W $E727,$FCFF,$FCF0,$3C78
+ DC.W $E727,$FCFF,$FCFF,$F9F8
+ DC.W $F273,$3CFF,$FCFF,$F338
+ DC.W $F8F8,$787F,$F03F,$F038
+ DC.W $FFFF,$FFFF,$FFFF,$FFF8
+ DC.W $FFFF,$FFFF,$FFFF,$FFF8
+ DC.W $FFFF,$FFFF,$FFFF,$FFF8
+
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0707,$8FC0,$0300,$0780
+ DC.W $0D8C,$CB40,$0700,$0CC0
+ DC.W $18D8,$0300,$0300,$00C0
+ DC.W $18D8,$0300,$030F,$C380
+ DC.W $18D8,$0300,$0300,$0600
+ DC.W $0D8C,$C300,$0300,$0CC0
+ DC.W $0707,$8780,$0FC0,$0FC0
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0707,$8FC0,$0300,$0780
+ DC.W $0D8C,$CB40,$0700,$0CC0
+ DC.W $18D8,$0300,$0300,$00C0
+ DC.W $18D8,$0300,$030F,$C380
+ DC.W $18D8,$0300,$0300,$0600
+ DC.W $0D8C,$C300,$0300,$0CC0
+ DC.W $0707,$8780,$0FC0,$0FC0
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+
+keyboard_activec
+ DC.W $FFFF,$FFFF,$FFFF,$FFF8
+ DC.W $FFFF,$FFFF,$FFFF,$FFF8
+ DC.W $FFFF,$FFFF,$FFFF,$FFF8
+ DC.W $FFE3,$207F,$F8E7,$3FF8
+ DC.W $FFF3,$333F,$F263,$3FF8
+ DC.W $FFF2,$733F,$E721,$3FF8
+ DC.W $FFF0,$F07F,$E724,$3FF8
+ DC.W $FFF2,$733F,$E726,$3FF8
+ DC.W $FFF3,$333F,$F267,$3FF8
+ DC.W $FFE3,$207F,$F8E7,$3FF8
+ DC.W $FFFF,$FFFF,$FFFF,$FFF8
+ DC.W $FFFF,$FFFF,$FFFF,$FFF8
+ DC.W $FFFF,$FFFF,$FFFF,$FFF8
+
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $001C,$DF80,$0718,$C000
+ DC.W $000C,$CCC0,$0D9C,$C000
+ DC.W $000D,$8CC0,$18DE,$C000
+ DC.W $000F,$0F80,$18DB,$C000
+ DC.W $000D,$8CC0,$18D9,$C000
+ DC.W $000C,$CCC0,$0D98,$C000
+ DC.W $001C,$DF80,$0718,$C000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $001C,$DF80,$0718,$C000
+ DC.W $000C,$CCC0,$0D9C,$C000
+ DC.W $000D,$8CC0,$18DE,$C000
+ DC.W $000F,$0F80,$18DB,$C000
+ DC.W $000D,$8CC0,$18D9,$C000
+ DC.W $000C,$CCC0,$0D98,$C000
+ DC.W $001C,$DF80,$0718,$C000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+
+**end of keyboard butts
+
+page1_graphics 
+ DC.W $7FFF,$FFE0
+ DC.W $7FFF,$FF80
+ DC.W $FFFF,$FE00
+ DC.W $FC0F,$9E00
+ DC.W $FE67,$1E00
+ DC.W $FE67,$9E00
+ DC.W $FE0F,$9E00
+ DC.W $FE7F,$9E00
+ DC.W $FE7F,$9E00
+ DC.W $FC3E,$0600
+ DC.W $FFFF,$FE00
+ DC.W $E000,$0000
+ DC.W $8000,$0000
+ 
+ DC.W $FFFF,$FFE0
+ DC.W $FFFF,$FF80
+ DC.W $E000,$0000
+ DC.W $E000,$0000
+ DC.W $E000,$0000
+ DC.W $E000,$0000
+ DC.W $E000,$0000
+ DC.W $E000,$0000
+ DC.W $E000,$0000
+ DC.W $E000,$0000
+ DC.W $E000,$0000
+ DC.W $E000,$0000
+ DC.W $8000,$0000
+ 
+ DC.W $8000,$0000
+ DC.W $8000,$0060
+ DC.W $0000,$01E0
+ DC.W $0000,$01E0
+ DC.W $0000,$01E0
+ DC.W $0000,$01E0
+ DC.W $0000,$01E0
+ DC.W $0000,$01E0
+ DC.W $0000,$01E0
+ DC.W $0000,$01E0
+ DC.W $0000,$01E0
+ DC.W $1FFF,$FFE0
+ DC.W $7FFF,$FFE0
+ 
+ 
+ 
+ 
+page2_graphics 
+ 
+ DC.W $7FFF,$FFE0
+ DC.W $7FFF,$FF80
+ DC.W $FFFF,$FE00
+ DC.W $FC0F,$0E00
+ DC.W $FE66,$6600
+ DC.W $FE67,$E600
+ DC.W $FE0F,$8E00
+ DC.W $FE7F,$3E00
+ DC.W $FE7E,$6600
+ DC.W $FC3E,$0600
+ DC.W $FFFF,$FE00
+ DC.W $E000,$0000
+ DC.W $8000,$0000
+
+ DC.W $FFFF,$FFE0
+ DC.W $FFFF,$FF80
+ DC.W $E000,$0000
+ DC.W $E000,$0000
+ DC.W $E000,$0000
+ DC.W $E000,$0000
+ DC.W $E000,$0000
+ DC.W $E000,$0000
+ DC.W $E000,$0000
+ DC.W $E000,$0000
+ DC.W $E000,$0000
+ DC.W $E000,$0000
+ DC.W $8000,$0000
+ 
+ DC.W $8000,$0000
+ DC.W $8000,$0060
+ DC.W $0000,$01E0
+ DC.W $0000,$01E0
+ DC.W $0000,$01E0
+ DC.W $0000,$01E0
+ DC.W $0000,$01E0
+ DC.W $0000,$01E0
+ DC.W $0000,$01E0
+ DC.W $0000,$01E0
+ DC.W $0000,$01E0
+ DC.W $1FFF,$FFE0
+ DC.W $7FFF,$FFE0
+
+
+page3_graphics
+
+ 
+ DC.W $7FFF,$FFE0
+ DC.W $7FFF,$FF80
+ DC.W $FFFF,$FE00
+ DC.W $F81E,$1E00
+ DC.W $FCCC,$CE00
+ DC.W $FCCF,$CE00
+ DC.W $FC1F,$1E00
+ DC.W $FCFF,$CE00
+ DC.W $FCFC,$CE00
+ DC.W $F87E,$1E00
+ DC.W $FFFF,$FE00
+ DC.W $E000,$0000
+ DC.W $8000,$0000
+ 
+ DC.W $FFFF,$FFE0
+ DC.W $FFFF,$FF80
+ DC.W $E000,$0000
+ DC.W $E000,$0000
+ DC.W $E000,$0000
+ DC.W $E000,$0000
+ DC.W $E000,$0000
+ DC.W $E000,$0000
+ DC.W $E000,$0000
+ DC.W $E000,$0000
+ DC.W $E000,$0000
+ DC.W $E000,$0000
+ DC.W $8000,$0000
+
+ DC.W $8000,$0000
+ DC.W $8000,$0060
+ DC.W $0000,$01E0
+ DC.W $0000,$01E0
+ DC.W $0000,$01E0
+ DC.W $0000,$01E0
+ DC.W $0000,$01E0
+ DC.W $0000,$01E0
+ DC.W $0000,$01E0
+ DC.W $0000,$01E0
+ DC.W $0000,$01E0
+ DC.W $1FFF,$FFE0
+ DC.W $7FFF,$FFE0
+ 
+
+page4_graphics 
+ DC.W $7FFF,$FFE0
+ DC.W $7FFF,$FF80
+ DC.W $FFFF,$FE00
+ DC.W $F81F,$1E00
+ DC.W $FCCE,$1E00
+ DC.W $FCCC,$9E00
+ DC.W $FC19,$9E00
+ DC.W $FCF8,$0E00
+ DC.W $FCFF,$9E00
+ DC.W $F87F,$0E00
+ DC.W $FFFF,$FE00
+ DC.W $E000,$0000
+ DC.W $8000,$0000
+
+   
+ DC.W $FFFF,$FFE0
+ DC.W $FFFF,$FF80
+ DC.W $E000,$0000
+ DC.W $E000,$0000
+ DC.W $E000,$0000
+ DC.W $E000,$0000
+ DC.W $E000,$0000
+ DC.W $E000,$0000
+ DC.W $E000,$0000
+ DC.W $E000,$0000
+ DC.W $E000,$0000
+ DC.W $E000,$0000
+ DC.W $8000,$0000
+ 
+ DC.W $8000,$0000
+ DC.W $8000,$0060
+ DC.W $0000,$01E0
+ DC.W $0000,$01E0
+ DC.W $0000,$01E0
+ DC.W $0000,$01E0
+ DC.W $0000,$01E0
+ DC.W $0000,$01E0
+ DC.W $0000,$01E0
+ DC.W $0000,$01E0
+ DC.W $0000,$01E0
+ DC.W $1FFF,$FFE0
+ DC.W $7FFF,$FFE0
+
+
+page1_clicked_graphics
+
+ DC.W $FFFF,$FFE0
+ DC.W $FFFF,$FFE0
+ DC.W $FFFF,$FFE0
+ DC.W $FC0F,$9FE0
+ DC.W $FE67,$1FE0
+ DC.W $FE67,$9FE0
+ DC.W $FE0F,$9FE0
+ DC.W $FE7F,$9FE0
+ DC.W $FE7F,$9FE0
+ DC.W $FC3E,$07E0
+ DC.W $FFFF,$FFE0
+ DC.W $FFFF,$FFE0
+ DC.W $FFFF,$FFE0
+ 
+ 
+ ds.w  13*2*2
+page2_clicked_graphics
+
+
+ DC.W $FFFF,$FFE0
+ DC.W $FFFF,$FFE0
+ DC.W $FFFF,$FFE0
+ DC.W $FC0F,$0FE0
+ DC.W $FE66,$67E0
+ DC.W $FE67,$E7E0
+ DC.W $FE0F,$8FE0
+ DC.W $FE7F,$3FE0
+ DC.W $FE7E,$67E0
+ DC.W $FC3E,$07E0
+ DC.W $FFFF,$FFE0
+ DC.W $FFFF,$FFE0
+ DC.W $FFFF,$FFE0
+ 
+ ds.w 13*2*2 
+ 
+page3_clicked_graphics 
+ DC.W $FFFF,$FFE0
+ DC.W $FFFF,$FFE0
+ DC.W $FFFF,$FFE0
+ DC.W $F81E,$1FE0
+ DC.W $FCCC,$CFE0
+ DC.W $FCCF,$CFE0
+ DC.W $FC1F,$1FE0
+ DC.W $FCFF,$CFE0
+ DC.W $FCFC,$CFE0
+ DC.W $F87E,$1FE0
+ DC.W $FFFF,$FFE0
+ DC.W $FFFF,$FFE0
+ DC.W $FFFF,$FFE0
+ 
+ ds.w 13*2*2
+ 
+page4_clicked_graphics 
+ DC.W $FFFF,$FFE0
+ DC.W $FFFF,$FFE0
+ DC.W $FFFF,$FFE0
+ DC.W $F81F,$1FE0
+ DC.W $FCCE,$1FE0
+ DC.W $FCCC,$9FE0
+ DC.W $FC19,$9FE0
+ DC.W $FCF8,$0FE0
+ DC.W $FCFF,$9FE0
+ DC.W $F87F,$0FE0
+ DC.W $FFFF,$FFE0
+ DC.W $FFFF,$FFE0
+ DC.W $FFFF,$FFE0
+
+ ds.w 13*2*2
+
+
+palette_button0
+ ds.w   8
+ ds.w   8
+ ds.w   8
+ ds.w   8
+ ds.w   8
+
+palette_button1
+
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+ ds.w   8
+ ds.w   8
+ ds.w   8
+ ds.w   8
+
+
+
+
+palette_button2
+
+ ds.w 8
+
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+ ds.w   8
+ ds.w   8
+ ds.w   8
+ 
+palette_button3
+
+
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+ 
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+
+ ds.w   8
+ ds.w   8
+ ds.w   8
+
+palette_button4
+
+ ds.w   8
+ ds.w   8
+
+
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+
+ ds.w   8
+ ds.w   8
+
+
+palette_button5
+
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+
+ ds.w   8
+
+
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+
+ ds.w   8
+ ds.w   8
+ 
+
+palette_button6
+
+ ds.w   8
+
+
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+
+ ds.w   8
+ ds.w   8
+
+palette_button7
+
+
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+
+ ds.w   8
+ ds.w   8
+
+
+palette_button8
+ ds.w   8
+ ds.w   8
+ ds.w   8
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+  ds.w   8
+
+palette_button9
+
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+ ds.w   8
+ ds.w   8
+  dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+ ds.w   8
+
+
+
+
+palette_button10
+
+ ds.w 8
+
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+ ds.w   8
+  dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+ ds.w   8
+ 
+palette_button11
+
+
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+ 
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+
+ ds.w   8
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+ ds.w   8
+
+palette_button12
+
+ ds.w   8
+ ds.w   8
+
+
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+
+ ds.w   8
+ ds.w   8
+
+
+palette_button13
+
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+
+ ds.w   8
+
+
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+
+  dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+ ds.w   8
+ 
+
+palette_button14
+
+ ds.w   8
+
+
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+ ds.w   8
+
+palette_button15
+
+
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+ ds.w   8
+
+
+
+
+palette_button16
+ ds.w   8
+ ds.w   8
+ ds.w   8
+ ds.w   8
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+
+palette_button17
+
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+ ds.w   8
+ ds.w   8
+ ds.w   8
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+
+
+
+
+palette_button18
+
+ ds.w 8
+
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+ ds.w   8
+ ds.w   8
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+ 
+palette_button19
+
+
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+ 
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+
+ ds.w   8
+ ds.w   8
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+
+palette_button20
+
+ ds.w   8
+ ds.w   8
+
+
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+
+ ds.w   8
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+
+
+palette_button21
+
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+
+ ds.w   8
+
+
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+
+ ds.w   8
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+ 
+
+palette_button22
+
+ ds.w   8
+
+
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+
+ ds.w   8
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+
+palette_button23
+
+
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+
+ ds.w   8
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+
+
+palette_button24
+ ds.w   8
+ ds.w   8
+ ds.w   8
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+
+palette_button25
+
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+ ds.w   8
+ ds.w   8
+  dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+
+
+
+
+palette_button26
+
+ ds.w 8
+
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+ ds.w   8
+  dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+ 
+palette_button27
+
+
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+ 
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+
+ ds.w   8
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+
+palette_button28
+
+ ds.w   8
+ ds.w   8
+
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+
+
+
+palette_button29
+
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+
+ ds.w   8
+
+
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+
+  dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+ 
+
+palette_button30
+
+ ds.w   8
+
+
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+
+palette_button31
+
+
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+
+
+
+
+
+palette_clicked_button0
+ 
+ dc.w  $ff00
+ dc.w  $8100
+ dc.w  $8100
+ dc.w  $8100
+ dc.w  $8100
+ dc.w  $8100
+ dc.w  $8100
+ dc.w  $ff00
+
+ ds.w   8
+ ds.w   8
+ ds.w   8
+ ds.w   8
+
+palette_clicked_button1
+
+ dcb.w  8,$ff00 
+ ds.w   8
+ ds.w   8
+ ds.w   8
+ ds.w   8
+
+
+
+
+palette_clicked_button2
+
+  
+ dc.w  $ff00
+ dc.w  $8100
+ dc.w  $8100
+ dc.w  $8100
+ dc.w  $8100
+ dc.w  $8100
+ dc.w  $8100
+ dc.w  $ff00
+
+
+
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+ ds.w   8
+ ds.w   8
+ ds.w   8
+ 
+palette_clicked_button3
+
+ dcb.w 8,$ff00
+ 
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+
+ ds.w   8
+ ds.w   8
+ ds.w   8
+
+palette_clicked_button4
+
+ dc.w $ff00
+ dc.w $8100
+ dc.w $8100
+ dc.w $8100
+ dc.w $8100
+ dc.w $8100
+ dc.w $8100
+ dc.w $ff00
+
+ ds.w   8
+
+
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+
+ ds.w   8
+ ds.w   8
+
+
+palette_clicked_button5
+
+ dcb.w 8,$ff00
+ ds.w   8
+
+
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+
+ ds.w   8
+ ds.w   8
+ 
+
+palette_clicked_button6
+
+ dc.w $ff00
+ dc.w $8100
+ dc.w $8100
+ dc.w $8100
+ dc.w $8100
+ dc.w $8100
+ dc.w $8100
+ dc.w $ff00
+
+
+
+
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+
+ ds.w   8
+ ds.w   8
+
+palette_clicked_button7
+
+
+ dcb.w 8,$ff00
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+
+ ds.w   8
+ ds.w   8
+
+
+palette_clicked_button8
+ 
+ dc.w $ff00
+ dc.w $8100
+ dc.w $8100
+ dc.w $8100
+ dc.w $8100
+ dc.w $8100
+ dc.w $8100
+ dc.w $ff00
+
+ ds.w   8
+ ds.w   8
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+  ds.w   8
+
+palette_clicked_button9
+
+  dcb.w 8,$ff00
+  ds.w   8
+ ds.w   8
+  dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+ ds.w   8
+
+
+
+
+palette_clicked_button10
+
+ dc.w $ff00
+ dc.w $8100
+ dc.w $8100
+ dc.w $8100
+ dc.w $8100
+ dc.w $8100
+ dc.w $8100
+ dc.w $ff00
+
+
+
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+ ds.w   8
+  dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+ ds.w   8
+ 
+palette_clicked_button11
+
+
+ dcb.w 8,$ff00
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+
+ ds.w   8
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+ ds.w   8
+
+palette_clicked_button12
+
+ dc.w $ff00
+ dc.w $8100
+ dc.w $8100
+ dc.w $8100
+ dc.w $8100
+ dc.w $8100
+ dc.w $8100
+ dc.w $ff00
+
+ ds.w   8
+
+
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+
+ ds.w   8
+ ds.w   8
+
+
+palette_clicked_button13
+
+ 
+ dcb.w 8,$ff00
+ ds.w   8
+
+
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+
+  dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+ ds.w   8
+ 
+
+palette_clicked_button14
+
+ dc.w $ff00
+ dc.w $8100
+ dc.w $8100
+ dc.w $8100
+ dc.w $8100
+ dc.w $8100
+ dc.w $8100
+ dc.w $ff00
+
+
+
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+ ds.w   8
+
+palette_clicked_button15
+
+
+ dcb.w 8,$ff00
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+ ds.w   8
+
+
+
+
+palette_clicked_button16
+  
+ dc.w $ff00
+ dc.w $8100
+ dc.w $8100
+ dc.w $8100
+ dc.w $8100
+ dc.w $8100
+ dc.w $8100
+ dc.w $ff00
+
+ ds.w   8
+ ds.w   8
+ ds.w   8
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+
+palette_clicked_button17
+
+ dcb.w 8,$ff00
+ ds.w   8
+ ds.w   8
+ ds.w   8
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+
+
+
+
+palette_clicked_button18
+
+ dc.w $ff00
+ dc.w $8100
+ dc.w $8100
+ dc.w $8100
+ dc.w $8100
+ dc.w $8100
+ dc.w $8100
+ dc.w $ff00
+
+
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+ ds.w   8
+ ds.w   8
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+ 
+palette_clicked_button19
+
+ dcb.w 8,$ff00
+ 
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+
+ ds.w   8
+ ds.w   8
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+
+palette_clicked_button20
+
+ dc.w $ff00
+ dc.w $8100
+ dc.w $8100
+ dc.w $8100
+ dc.w $8100
+ dc.w $8100
+ dc.w $8100
+ dc.w $ff00
+
+ ds.w   8
+
+
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+
+ ds.w   8
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+
+
+palette_clicked_button21
+
+
+ dcb.w 8,$ff00
+ ds.w   8
+
+
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+
+ ds.w   8
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+ 
+
+palette_clicked_button22
+
+ dc.w $ff00
+ dc.w $8100
+ dc.w $8100
+ dc.w $8100
+ dc.w $8100
+ dc.w $8100
+ dc.w $8100
+ dc.w $ff00
+
+
+
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+
+ ds.w   8
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+
+palette_clicked_button23
+
+
+ dcb.w 8,$ff00
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+
+ ds.w   8
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+
+
+palette_clicked_button24
+ dc.w $ff00
+ dc.w $8100
+ dc.w $8100
+ dc.w $8100
+ dc.w $8100
+ dc.w $8100
+ dc.w $8100
+ dc.w $ff00
+
+ ds.w   8
+ ds.w   8
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+
+palette_clicked_button25
+
+ dcb.w 8,$ff00
+ ds.w   8
+ ds.w   8
+  dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+
+
+
+
+palette_clicked_button26
+
+ dc.w $ff00
+ dc.w $8100
+ dc.w $8100
+ dc.w $8100
+ dc.w $8100
+ dc.w $8100
+ dc.w $8100
+ dc.w $ff00
+
+
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+ ds.w   8
+  dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+ 
+palette_clicked_button27
+
+
+ dcb.w 8,$ff00 
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+
+ ds.w   8
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+
+palette_clicked_button28
+
+  dc.w $ff00
+ dc.w $8100
+ dc.w $8100
+ dc.w $8100
+ dc.w $8100
+ dc.w $8100
+ dc.w $8100
+ dc.w $ff00
+
+ ds.w 8
+ 
+  dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+
+palette_clicked_button29
+
+ dcb.w 8,$ff00
+
+ ds.w   8
+
+
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+
+  dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+ 
+
+palette_clicked_button30
+
+ dc.w $ff00
+ dc.w $8100
+ dc.w $8100
+ dc.w $8100
+ dc.w $8100
+ dc.w $8100
+ dc.w $8100
+ dc.w $ff00
+
+
+
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+
+palette_clicked_button31
+
+
+ dcb.w 8,$ff00
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+ dc.w $0000
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $7e00
+ dc.w $0000
+
+
+loadgrap
+ DC.W $7FFF,$FFFF,$FFFF,$FFFC
+ DC.W $7FFF,$FFFF,$FFFF,$FFF0
+ DC.W $FFFF,$FFFF,$FFFF,$FFC0
+ DC.W $FFFE,$1F8F,$CE0F,$FFC0
+ DC.W $FFFF,$3F27,$8727,$FFC0
+ DC.W $FFFF,$3E73,$8733,$FFC0
+ DC.W $FFFF,$3E73,$3333,$FFC0
+ DC.W $FFFF,$3A73,$0333,$FFC0
+ DC.W $FFFF,$3326,$7927,$FFC0
+ DC.W $FFFE,$038E,$780F,$FFC0
+ DC.W $FFFF,$FFFF,$FFFF,$FFC0
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $8000,$0000,$0000,$0000
+
+
+
+ DC.W $FFFF,$FFFF,$FFFF,$FFFC
+ DC.W $FFFF,$FFFF,$FFFF,$FFF0
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $8000,$0000,$0000,$0000
+
+
+
+ DC.W $8000,$0000,$0000,$0000
+ DC.W $8000,$0000,$0000,$000C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $1FFF,$FFFF,$FFFF,$FFFC
+ DC.W $7FFF,$FFFF,$FFFF,$FFFC
+
+
+
+loadclickedgrap
+ DC.W $FFFF,$FFFF,$FFFF,$FFFC
+ DC.W $FFFF,$FFFF,$FFFF,$FFFC
+ DC.W $FFFF,$FFFF,$FFFF,$FFFC
+ DC.W $FFFE,$1F8F,$CE0F,$FFFC
+ DC.W $FFFF,$3F27,$8727,$FFFC
+ DC.W $FFFF,$3E73,$8733,$FFFC
+ DC.W $FFFF,$3E73,$3333,$FFFC
+ DC.W $FFFF,$3A73,$0333,$FFFC
+ DC.W $FFFF,$3326,$7927,$FFFC
+ DC.W $FFFE,$038E,$780F,$FFFC
+ DC.W $FFFF,$FFFF,$FFFF,$FFFC
+ DC.W $FFFF,$FFFF,$FFFF,$FFFC
+ DC.W $FFFF,$FFFF,$FFFF,$FFFC
+
+
+
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+
+
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+
+
+savegrap
+ DC.W $7FFF,$FFFF,$FFFF,$FFFC
+ DC.W $7FFF,$FFFF,$FFFF,$FFF0
+ DC.W $FFFF,$FFFF,$FFFF,$FFC0
+ DC.W $FFFF,$0F9C,$F007,$FFC0
+ DC.W $FFFE,$670C,$F267,$FFC0
+ DC.W $FFFE,$3F0E,$667F,$FFC0
+ DC.W $FFFF,$1E66,$661F,$FFC0
+ DC.W $FFFF,$C607,$0E7F,$FFC0
+ DC.W $FFFE,$64F3,$0E67,$FFC0
+ DC.W $FFFF,$0CF3,$9C07,$FFC0
+ DC.W $FFFF,$FFFF,$FFFF,$FFC0
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $8000,$0000,$0000,$0000
+
+
+ DC.W $FFFF,$FFFF,$FFFF,$FFFC
+ DC.W $FFFF,$FFFF,$FFFF,$FFF0
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $E000,$0000,$0000,$0000
+ DC.W $8000,$0000,$0000,$0000
+
+
+ DC.W $8000,$0000,$0000,$0000
+ DC.W $8000,$0000,$0000,$000C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $0000,$0000,$0000,$003C
+ DC.W $1FFF,$FFFF,$FFFF,$FFFC
+ DC.W $7FFF,$FFFF,$FFFF,$FFFC
+
+
+
+saveclickedgrap
+ DC.W $FFFF,$FFFF,$FFFF,$FFFC
+ DC.W $FFFF,$FFFF,$FFFF,$FFFC
+ DC.W $FFFF,$FFFF,$FFFF,$FFFC
+ DC.W $FFFF,$0F9C,$F007,$FFFC
+ DC.W $FFFE,$670C,$F267,$FFFC
+ DC.W $FFFE,$3F0E,$667F,$FFFC
+ DC.W $FFFF,$1E66,$661F,$FFFC
+ DC.W $FFFF,$C607,$0E7F,$FFFC
+ DC.W $FFFE,$64F3,$0E67,$FFFC
+ DC.W $FFFF,$0CF3,$9C07,$FFFC
+ DC.W $FFFF,$FFFF,$FFFF,$FFFC
+ DC.W $FFFF,$FFFF,$FFFF,$FFFC
+ DC.W $FFFF,$FFFF,$FFFF,$FFFC
+
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+
+
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+ DC.W $0000,$0000,$0000,$0000
+
+
+dh0new
+ DC.W $7FFF,$FFC0
+ DC.W $7FFF,$FF80
+ DC.W $FFFF,$FF00
+ DC.W $FFFF,$FF00
+ DC.W $FE6B,$7700
+ DC.W $FEAA,$BF00
+ DC.W $FEA2,$BF00
+ DC.W $FEAA,$BF00
+ DC.W $FE6B,$7700
+ DC.W $FFFF,$FF00
+ DC.W $FFFF,$FF00
+ DC.W $C000,$0000
+ DC.W $8000,$0000
+
+*Bitplane2
+
+ DC.W $FFFF,$FFC0
+ DC.W $FFFF,$FF80
+ DC.W $C000,$0000
+ DC.W $C000,$0000
+ DC.W $C000,$0000
+ DC.W $C000,$0000
+ DC.W $C000,$0000
+ DC.W $C000,$0000
+ DC.W $C000,$0000
+ DC.W $C000,$0000
+ DC.W $C000,$0000
+ DC.W $C000,$0000
+ DC.W $8000,$0000
+
+*Bitplane3
+
+ DC.W $8000,$0000
+ DC.W $8000,$0040
+ DC.W $0000,$00C0
+ DC.W $0000,$00C0
+ DC.W $0000,$00C0
+ DC.W $0000,$00C0
+ DC.W $0000,$00C0
+ DC.W $0000,$00C0
+ DC.W $0000,$00C0
+ DC.W $0000,$00C0
+ DC.W $0000,$00C0
+ DC.W $3FFF,$FFC0
+ DC.W $7FFF,$FFC0
+
+dh0newc
+ DC.W $FFFF,$FFC0
+ DC.W $FFFF,$FFC0
+ DC.W $FFFF,$FFC0
+ DC.W $FFFF,$FFC0
+ DC.W $FE6B,$77C0
+ DC.W $FEAA,$BFC0
+ DC.W $FEA2,$BFC0
+ DC.W $FEAA,$BFC0
+ DC.W $FE6B,$77C0
+ DC.W $FFFF,$FFC0
+ DC.W $FFFF,$FFC0
+ DC.W $FFFF,$FFC0
+ DC.W $FFFF,$FFC0
+
+*Bitplane2
+
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+
+*Bitplane3
+
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+
+
+dh1new
+ DC.W $7FFF,$FFC0
+ DC.W $7FFF,$FF80
+ DC.W $FFFF,$FF00
+ DC.W $FFFF,$FF00
+ DC.W $FCD6,$EF00
+ DC.W $FD56,$FF00
+ DC.W $FD46,$FF00
+ DC.W $FD56,$FF00
+ DC.W $FCD6,$EF00
+ DC.W $FFFF,$FF00
+ DC.W $FFFF,$FF00
+ DC.W $C000,$0000
+ DC.W $8000,$0000
+
+
+ DC.W $FFFF,$FFC0
+ DC.W $FFFF,$FF80
+ DC.W $C000,$0000
+ DC.W $C000,$0000
+ DC.W $C000,$0000
+ DC.W $C000,$0000
+ DC.W $C000,$0000
+ DC.W $C000,$0000
+ DC.W $C000,$0000
+ DC.W $C000,$0000
+ DC.W $C000,$0000
+ DC.W $C000,$0000
+ DC.W $8000,$0000
+
+
+ DC.W $8000,$0000
+ DC.W $8000,$0040
+ DC.W $0000,$00C0
+ DC.W $0000,$00C0
+ DC.W $0000,$00C0
+ DC.W $0000,$00C0
+ DC.W $0000,$00C0
+ DC.W $0000,$00C0
+ DC.W $0000,$00C0
+ DC.W $0000,$00C0
+ DC.W $0000,$00C0
+ DC.W $3FFF,$FFC0
+ DC.W $7FFF,$FFC0
+
+dh1newc
+ DC.W $FFFF,$FFC0
+ DC.W $FFFF,$FFC0
+ DC.W $FFFF,$FFC0
+ DC.W $FFFF,$FFC0
+ DC.W $FCD6,$EFC0
+ DC.W $FD56,$FFC0
+ DC.W $FD46,$FFC0
+ DC.W $FD56,$FFC0
+ DC.W $FCD6,$EFC0
+ DC.W $FFFF,$FFC0
+ DC.W $FFFF,$FFC0
+ DC.W $FFFF,$FFC0
+ DC.W $FFFF,$FFC0
+
+
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+
+
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+
+
+df0new
+ DC.W $7FFF,$FFC0
+ DC.W $7FFF,$FF80
+ DC.W $FFFF,$FF00
+ DC.W $FFFF,$FF00
+ DC.W $FCC6,$EF00
+ DC.W $FD5D,$7F00
+ DC.W $FD45,$7F00
+ DC.W $FD5D,$7F00
+ DC.W $FCDE,$EF00
+ DC.W $FFFF,$FF00
+ DC.W $FFFF,$FF00
+ DC.W $C000,$0000
+ DC.W $8000,$0000
+
+
+ DC.W $FFFF,$FFC0
+ DC.W $FFFF,$FF80
+ DC.W $C000,$0000
+ DC.W $C000,$0000
+ DC.W $C000,$0000
+ DC.W $C000,$0000
+ DC.W $C000,$0000
+ DC.W $C000,$0000
+ DC.W $C000,$0000
+ DC.W $C000,$0000
+ DC.W $C000,$0000
+ DC.W $C000,$0000
+ DC.W $8000,$0000
+
+
+ DC.W $8000,$0000
+ DC.W $8000,$0040
+ DC.W $0000,$00C0
+ DC.W $0000,$00C0
+ DC.W $0000,$00C0
+ DC.W $0000,$00C0
+ DC.W $0000,$00C0
+ DC.W $0000,$00C0
+ DC.W $0000,$00C0
+ DC.W $0000,$00C0
+ DC.W $0000,$00C0
+ DC.W $3FFF,$FFC0
+ DC.W $7FFF,$FFC0
+
+df0newc
+ DC.W $FFFF,$FFC0
+ DC.W $FFFF,$FFC0
+ DC.W $FFFF,$FFC0
+ DC.W $FFFF,$FFC0
+ DC.W $FCC6,$EFC0
+ DC.W $FD5D,$7FC0
+ DC.W $FD45,$7FC0
+ DC.W $FD5D,$7FC0
+ DC.W $FCDE,$EFC0
+ DC.W $FFFF,$FFC0
+ DC.W $FFFF,$FFC0
+ DC.W $FFFF,$FFC0
+ DC.W $FFFF,$FFC0
+
+
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+
+
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+
+
+df1new
+ DC.W $7FFF,$FFC0
+ DC.W $7FFF,$FF80
+ DC.W $FFFF,$FF00
+ DC.W $FFFF,$FF00
+ DC.W $FE63,$7700
+ DC.W $FEAF,$7F00
+ DC.W $FEA3,$7F00
+ DC.W $FEAF,$7F00
+ DC.W $FE6F,$7700
+ DC.W $FFFF,$FF00
+ DC.W $FFFF,$FF00
+ DC.W $C000,$0000
+ DC.W $8000,$0000
+
+
+ DC.W $FFFF,$FFC0
+ DC.W $FFFF,$FF80
+ DC.W $C000,$0000
+ DC.W $C000,$0000
+ DC.W $C000,$0000
+ DC.W $C000,$0000
+ DC.W $C000,$0000
+ DC.W $C000,$0000
+ DC.W $C000,$0000
+ DC.W $C000,$0000
+ DC.W $C000,$0000
+ DC.W $C000,$0000
+ DC.W $8000,$0000
+
+
+ DC.W $8000,$0000
+ DC.W $8000,$0040
+ DC.W $0000,$00C0
+ DC.W $0000,$00C0
+ DC.W $0000,$00C0
+ DC.W $0000,$00C0
+ DC.W $0000,$00C0
+ DC.W $0000,$00C0
+ DC.W $0000,$00C0
+ DC.W $0000,$00C0
+ DC.W $0000,$00C0
+ DC.W $3FFF,$FFC0
+ DC.W $7FFF,$FFC0
+
+df1newc
+ DC.W $FFFF,$FFC0
+ DC.W $FFFF,$FFC0
+ DC.W $FFFF,$FFC0
+ DC.W $FFFF,$FFC0
+ DC.W $FE63,$77C0
+ DC.W $FEAF,$7FC0
+ DC.W $FEA3,$7FC0
+ DC.W $FEAF,$7FC0
+ DC.W $FE6F,$77C0
+ DC.W $FFFF,$FFC0
+ DC.W $FFFF,$FFC0
+ DC.W $FFFF,$FFC0
+ DC.W $FFFF,$FFC0
+
+
+
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+
+
+
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+
+
+ramnew
+ DC.W $7FFF,$FFC0
+ DC.W $7FFF,$FF80
+ DC.W $FFFF,$FF00
+ DC.W $FFFF,$FF00
+ DC.W $FE62,$B700
+ DC.W $FEAA,$3F00
+ DC.W $FEA2,$BF00
+ DC.W $FE6A,$BF00
+ DC.W $FEAA,$B700
+ DC.W $FFFF,$FF00
+ DC.W $FFFF,$FF00
+ DC.W $C000,$0000
+ DC.W $8000,$0000
+
+
+ DC.W $FFFF,$FFC0
+ DC.W $FFFF,$FF80
+ DC.W $C000,$0000
+ DC.W $C000,$0000
+ DC.W $C000,$0000
+ DC.W $C000,$0000
+ DC.W $C000,$0000
+ DC.W $C000,$0000
+ DC.W $C000,$0000
+ DC.W $C000,$0000
+ DC.W $C000,$0000
+ DC.W $C000,$0000
+ DC.W $8000,$0000
+
+
+ DC.W $8000,$0000
+ DC.W $8000,$0040
+ DC.W $0000,$00C0
+ DC.W $0000,$00C0
+ DC.W $0000,$00C0
+ DC.W $0000,$00C0
+ DC.W $0000,$00C0
+ DC.W $0000,$00C0
+ DC.W $0000,$00C0
+ DC.W $0000,$00C0
+ DC.W $0000,$00C0
+ DC.W $3FFF,$FFC0
+ DC.W $7FFF,$FFC0
+
+ramnewc
+ DC.W $FFFF,$FFC0
+ DC.W $FFFF,$FFC0
+ DC.W $FFFF,$FFC0
+ DC.W $FFFF,$FFC0
+ DC.W $FE62,$B7C0
+ DC.W $FEAA,$3FC0
+ DC.W $FEA2,$BFC0
+ DC.W $FE6A,$BFC0
+ DC.W $FEAA,$B7C0
+ DC.W $FFFF,$FFC0
+ DC.W $FFFF,$FFC0
+ DC.W $FFFF,$FFC0
+ DC.W $FFFF,$FFC0
+
+
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+
+
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+
+radnew
+ DC.W $7FFF,$FFC0
+ DC.W $7FFF,$FF80
+ DC.W $FFFF,$FF00
+ DC.W $FFFF,$FF00
+ DC.W $FE62,$7700
+ DC.W $FEAA,$BF00
+ DC.W $FEA2,$BF00
+ DC.W $FE6A,$BF00
+ DC.W $FEAA,$7700
+ DC.W $FFFF,$FF00
+ DC.W $FFFF,$FF00
+ DC.W $C000,$0000
+ DC.W $8000,$0000
+
+
+
+ DC.W $FFFF,$FFC0
+ DC.W $FFFF,$FF80
+ DC.W $C000,$0000
+ DC.W $C000,$0000
+ DC.W $C000,$0000
+ DC.W $C000,$0000
+ DC.W $C000,$0000
+ DC.W $C000,$0000
+ DC.W $C000,$0000
+ DC.W $C000,$0000
+ DC.W $C000,$0000
+ DC.W $C000,$0000
+ DC.W $8000,$0000
+
+
+
+ DC.W $8000,$0000
+ DC.W $8000,$0040
+ DC.W $0000,$00C0
+ DC.W $0000,$00C0
+ DC.W $0000,$00C0
+ DC.W $0000,$00C0
+ DC.W $0000,$00C0
+ DC.W $0000,$00C0
+ DC.W $0000,$00C0
+ DC.W $0000,$00C0
+ DC.W $0000,$00C0
+ DC.W $3FFF,$FFC0
+ DC.W $7FFF,$FFC0
+
+radnewc
+ DC.W $FFFF,$FFC0
+ DC.W $FFFF,$FFC0
+ DC.W $FFFF,$FFC0
+ DC.W $FFFF,$FFC0
+ DC.W $FE62,$77C0
+ DC.W $FEAA,$BFC0
+ DC.W $FEA2,$BFC0
+ DC.W $FE6A,$BFC0
+ DC.W $FEAA,$77C0
+ DC.W $FFFF,$FFC0
+ DC.W $FFFF,$FFC0
+ DC.W $FFFF,$FFC0
+ DC.W $FFFF,$FFC0
+
+
+
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+
+
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+

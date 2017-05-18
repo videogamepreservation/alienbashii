@@ -1,0 +1,1 @@
+BLINK LIB:c.o mapcash.o LIB LIB:lc.lib LIB:lcm.lib LIB:amiga.lib

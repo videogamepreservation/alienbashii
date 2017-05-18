@@ -1,0 +1,57 @@
+*This output was produced by DARKLITE's iff convertor.
+
+
+
+Bitplane1
+
+ DC.W $FFFF,$FFC0
+ DC.W $FFFF,$FFC0
+ DC.W $FFFF,$FFC0
+ DC.W $FFFF,$FFC0
+ DC.W $FE62,$77C0
+ DC.W $FEAA,$BFC0
+ DC.W $FEA2,$BFC0
+ DC.W $FE6A,$BFC0
+ DC.W $FEAA,$77C0
+ DC.W $FFFF,$FFC0
+ DC.W $FFFF,$FFC0
+ DC.W $FFFF,$FFC0
+ DC.W $FFFF,$FFC0
+
+Bitplane2
+
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+
+Bitplane3
+
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+ DC.W $0000,$0000
+
+Colourmap
+
+ DC.W $000,$777,$555,$AAA,$444,$FF9,$FFF,$0CC
+
+* End of iff file conversion.  

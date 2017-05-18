@@ -1,0 +1,6 @@
+FROM LIB:c.o "functions.o"+"game.o"+"sort.o"+"JoyStick.o"+"startup.o"+"ASM_LIB.o"+"c2p_020_FastRam2.o"
+TO "wolf3d"
+LIB LIB:sc.lib LIB:amiga.lib
+SMALLCODE
+VERBOSE
+

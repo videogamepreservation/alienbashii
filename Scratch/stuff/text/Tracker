@@ -1,0 +1,34 @@
+                Tracker Music Play Routines
+                ---------------------------
+
+No demo would be complete without a tracker module playing
+in the background. It's a pity then that tracker code
+seems to be amongst the worst written I've seen:
+
+
+Protracker Replay code bug
+--------------------------
+
+I've just got the Protracker 2.3 update, and the replay code (both
+the VBlank and CIA code) still has the same bug from 1.0!
+
+At the front of the file is an equate
+
+>DMAWait = 300 ; Set this as low as possible without losing low notes.
+
+And then it goes on to use 300 as a hard coded value, never refering
+to DMAWait!
+
+Now, until I can get some free time to write a reliable scanline-wait
+routine to replace their DBRA loops (does anyone want to write a better
+Protracker player? Free fame & publicity :-), I suggest you change
+the references to 300 in the code (except in the data tables!) to
+DMAWait, and you make the DMAWait value *MUCH* higher.
+
+I use 1024 on this Amiga 3000 without any apparent problem, but
+perhaps it's safer to use a value around 2000. Amiga 4000/040
+owners and those with 68040 cards tell me that between 1800 and
+2000 are reasonable values...
+
+There is a better Protracker replay routine in the source/ drawer.
+

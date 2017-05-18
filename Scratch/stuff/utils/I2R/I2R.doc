@@ -1,0 +1,118 @@
+
+
+			*************************
+			*			*
+			*    IFF 2 RAW  v0.1    *
+			*			*
+			*************************
+
+			  © 1993 Michel Vissers
+
+*---------------------------------------------------------------------------*
+
+I2R is copyrighted by Michel Vissers. However, I2R can and may be distributed
+freely in any way as long as no profit is made of distributing this product.
+If you've paid more than $2.00 you are ripped off ! Everything in this archive
+is completely FREEWARE.
+
+Please spread the whole archive ! The following files are included :
+
+	- I2R		(The main program)
+        - I2R.info      (The icon)
+	- I2R.doc	(The documentation of I2R)
+	- I2R.asm	(The source of I2R (Extremely copyrighted :) )
+	- AGAshow.asm	(A source to show a RAW picture)
+	- AGAtest.iff	(A picture to test I2R)
+
+If you've got some spare dimes, nickels or whatever, send them !  Also bug-
+reports, letters, ideas, flames, goodlooking sisters (about 20 years >;^) and
+Amiga's are welcome...
+
+		        Michel Vissers
+		     Hobbendonkseweg  100
+			5283 HL Boxtel
+			   Holland.
+
+Or : S91406013@HSEPM1.HSE.NL  -  MICHEL@AMIGA.HSE.NL
+      (more chance here !)
+      
+NOTICE: I'm am not, and cannot be held, responsible for any (brain)damage
+caused by the (mis)use of the program or source.
+
+WARNING: The sources are an example of legal and good coding...NOT! No include
+files are used and some things might not be legal but who cares ? Not me...
+(Keep children away, and take health precautions :)
+
+QUESTION: Please do not change the source a bit and say YOU made it. If you
+like to see some new features write me...
+
+*---------------------------------------------------------------------------*
+
+This is version 0.1 of IFF 2 RAW. The following features are currently
+available:
+
+	- decrunch and write pictures. ( logical :)
+	  (I2R can only convert IFF to plane RAW (yet))
+	- make a copperlist for use in your code.
+
+In future versions the following should be included :
+
+	- display of the picture :)
+	- interleaved raw
+	- grabbing a part of an image
+	- sprite grabbing
+	- full support for all machines
+	- full support for all graphics modes
+	- ASCII copperlist for inclusion in source
+	- ability to make copperlists for OCS, ECS and AGA (and AAA ? :)
+	- improved IFF handling. (EA: send me some info please...)
+	- a nice user interface
+
+*---------------------------------------------------------------------------*
+
+How to use it (Or more precise, what does/can it do ?)
+
+I2R is a converter for IFF pictures. AGA IFF that is ! I needed such a program
+to be able to use 8 bitplanes pictures on my A1200. So I decided to make one
+by myself. (I had this idea earlier allready because my favorite convertor did
+not work on kick 2.0 and higher.) If I had to wait for one, I would have a new
+AAA machine allready and the new convertor was useless on it !
+
+Ok, currently this program is very limited (that's why v0.1) but I hope to
+release a new version real soon. This version will convert any picture but I
+don't know the result of for example HAM8 pictures. I don't know yet, how to
+handle the HAM8 mode. Also other modes are hocus pocus for me. As soon as I
+have found the the proper ways (Commodore ?) the new things will be included.
+Another limitation is that I2R is only able to save a copperlist for AGA with
+256 colors. So if you have a picture of 128 colours...well, too bad ! You'll
+get a 256 colour copperlist. (But you are still able to use it :)
+
+How to use it ? Easy, just click twice on the I2R icon and pop ! Open window.
+I2R will ask you for a IFF file to load (I know, maybe reqtools will be used
+in v0.2+ untill the final version is finished). After loading and decrunching
+a prompt will ask you for a new name to save the RAW file and the copperlist.
+The copperlist will have the extension '.cop'. This is a binary file so you
+have to use a incbin. Soon, also ASCII copperlist will be supported.
+Easy isn't it ?
+
+To use the RAW data and copperlist in your source take a look in the supplied
+example source.
+
+*---------------------------------------------------------------------------*
+
+History:
+
+v0.1	21/03/93	First version. Limited but working.
+
+*---------------------------------------------------------------------------*
+
+Last message :
+
+Please DO send bug reports and ideas to the address stated above even if you
+think 'that's not so important for me' or 'somebody else has probably written
+about this bug allready'. Also sources of how to handle different AGA modes
+are offcourse welcome. Help me make this the ultimate (and compatible with all
+machines :) convertor.
+
+*---------------------------------------------------------------------------*
+

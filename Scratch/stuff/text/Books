@@ -1,0 +1,91 @@
+                    Good Books for Programmers
+                    --------------------------
+
+I've been asked to suggest some good books (why? Isn't howtocode
+good enough? ;-)
+
+Hardware Reference Manual
+-------------------------
+Essential for demo and game coders.
+
+Rom Kernal Manual: Libraries
+----------------------------
+Essential for *ALL* Amiga Programmers
+
+Rom Kernal Manual: Devices
+--------------------------
+Essential if you plan to do any work with Device IO (input.device,
+timer.device, trackdisk.device, etc...)
+
+Rom Kernal Manual: Includes & Autodocs
+--------------------------------------
+These are available on disk instead, which is a lot cheaper!
+Essential reference work,
+
+All these books are available to developers on the CATS CD 2 as
+AmigaGuide files.. $50 from CATS US.
+
+Amiga User Interface & Style Guide
+----------------------------------
+Probably the most boring book I've ever read :-) Useful if you
+intend to write applications, but even then some of the rules have
+changed for V39 since this book was printed.
+
+AmigaDOS manual 3rd Edition (Bantam)
+------------------------------------
+Truly awful book, unfortunately the ONLY official dos.library
+reference. Why it can't be integrated into the RKM's I don't know...
+If you need to program dos.library and want info on AmigaDos file
+and hunk formats, this is the book.
+
+Mapping the Amiga (Compute)
+---------------------------
+One of my favourite books. This is an easy-to-read reference
+to all system (1.3) functions and structures. Much easier to
+use than the Includes & Autodocs. I wish there was a V39 update
+to this!
+
+Amiga System Programmers Guide (Abacus)
+---------------------------------------
+Quite handy, it covers a lot of the Hardware Reference manual,
+Rom Kernal Manuals and more in one book, but I'd suggest you
+buy the official books instead.
+
+Advanced Amiga System Programmers Guide (Abacus)
+------------------------------------------------
+Slightly more interesting than the first one, covers mainly
+OS level programming, but again nothing really new.
+
+Amiga Disk Drives Inside and Out (Abacus)
+-----------------------------------------
+AVOID THIS BOOK! It has some of the worst code and coding practices
+I have ever seen in it. Half of the code will only work under
+Kickstart 1.2, the other half doesn't work at all!!!!
+
+Amiga Realtime 3d Graphics (Sigma)
+----------------------------------
+Wow! What a useful book! Explains how to do vector graphics
+in 68000 on the Amiga, from basics to complex world models with
+lightsourcing. I haven't tried any of the code from the book
+yet, but it looks very good.
+
+680x0 Programming by Example (Howard Sams & Company)
+----------------------------------------------------
+Excellent book on 68000 programming. Covers 68000/020/030
+instructions, optimization. Aimed at the advanced 68000 user,
+some really neat stuff in this book. The only 68000 book I've
+bought, except the Motorola manual.
+
+Motorola User's Manuals (Prentice Hall?)
+--------------------------------------------------
+Explains most things you'd ever wish to know about your
+processor, and worth gold when trying to estimate
+cycles used by your code and what commands there are
+and everything. Thanks to ITT Multikomponent for giving
+me the mc68030 User's Manual for free (why?).
+
+The Discworld Series (Terry Pratchett)
+--------------------------------------
+Nothing to do with Amigas, but excellent books. If you need
+a break from programming, or just inspiration for impossible
+things to have in an impossible demo, read one of these!

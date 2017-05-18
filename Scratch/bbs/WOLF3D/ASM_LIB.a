@@ -1,0 +1,405 @@
+; extern void __asm AsmRenderMaze(register __a0 long *,register __a1 long *);
+; extern void __asm AsmClearBackground(register __a0 long *,register __d0 long,register __d1 long);
+; extern void __asm AsmChunky2Planar(register __a0 long *,register __a1 long *);
+
+	XDEF	_AsmRenderMaze
+	XDEF	_AsmClearBackground
+	XDEF	_AsmChunky2Planar
+	
+	section AsmGfxRoutines,code
+	
+; ------------------  G L O B A L   D E F I N E S  ------------------
+
+DISPLAY_DEPTH	equ	4	; These define the physical display
+DISPLAY_WIDTH	equ	320
+DISPLAY_HEIGHT	equ	200 
+
+				; These define the maze viewing area
+VIEW_WIDTH	equ	128	; size in pixels of wolf maze view (must be divisible by 8)
+VIEW_HEIGHT	equ	64	; size in rows of wolf maze view
+VIEW_LEFT	equ	100	; Column with in the framebuffer where the wolf view starts
+VIEW_TOP	equ	68	; First row to draw into
+VIEW_RIGHT	equ	((VIEW_WIDTH+VIEW_LEFT)-1)
+VIEW_BOTTOM	equ	((VIEW_HEIGHT+VIEW_TOP)-1)
+
+VIEW_CENTER_ROW equ	((VIEW_HEIGHT)/2)
+VIEW_CENTER_COL equ	((VIEW_LEFT+VIEW_RIGHT)/2)
+
+PlaneSize	equ	(DISPLAY_WIDTH*DISPLAY_HEIGHT)/8  ; 
+BufferSize	equ	(DISPLAY_WIDTH*DISPLAY_HEIGHT)	  ;
+VIEW_MIDDLE	equ	(DISPLAY_WIDTH*(VIEW_HEIGHT/2))
+
+;--------------------------------------------------------------------
+;AsmChunky2Planar
+;
+;FUNCTION:
+;   Convert a chunky graphics bitmap into 4 planar bitmap planes
+;
+;PARAMETERS:
+;   a0 -> chunky pixel buffer
+;   a1 -> plane0 (assume other 3 planes are allocated contiguously)
+;
+;RETURNS:
+;   none
+;
+;NOTE:
+;   This is a modified version of the c2p routine: peterm/chunky4.s
+;   by Peter McGavin (peterm@ker
+;--------------------------------------------------------------------
+
+; ------------------------  D E F I N E S  --------------------------
+
+buffer		equr	a0
+plane0		equr	a1
+plane1		equr	a2
+plane2		equr	a3
+plane3		equr	a4
+count		equr	d0
+const1		equr	d5
+const2		equr	d6
+
+; ----------------------------  M A I N  ----------------------------
+
+;	adda.l	#(VIEW_TOP*DISPLAY_WIDTH),buffer
+;	adda.l	#((DISPLAY_WIDTH/8)*VIEW_TOP),plane0
+Psize	equ	(DISPLAY_WIDTH*VIEW_HEIGHT)/8
+
+
+_AsmChunky2Planar:
+	movem.l	d2-d6/a2-a4,-(sp)
+	
+	adda.l	#(VIEW_TOP*DISPLAY_WIDTH),buffer
+	adda.l	#((DISPLAY_WIDTH/8)*VIEW_TOP),plane0	
+
+	moveq	#0,d0
+	
+	move.l	#$55555555,const1 ; d6 = constant $55555555
+	move.l	#$3333cccc,const2 ; d5 = constant $3333cccc
+	
+	move.w	#PlaneSize,d0
+	movea.l	plane0,plane1
+	adda.l	d0,plane1
+	movea.l	plane1,plane2
+	adda.l	d0,plane2
+	movea.l	plane2,plane3
+	adda.l	d0,plane3
+		
+	move.w	#Psize,count ; Working on 4 planes at a time
+
+				; processes 8 chunky pixels at a time
+C2Pmain	move.l	(a0)+,d2	; 12 get next 4 chunky pixels in d0
+	move.l	(a0)+,d3	; 12 get next 4 chunky pixels in d1
+
+	lsl.l	#4,d2		; 16
+	or.l	d3,d2		;  8
+	move.l	d2,d3		;  4
+	and.l	const2,d3	;  8
+	move.w	d3,d1		;  4
+	clr.w	d3		;  4
+	lsl.l	#2,d3		; 12
+	lsr.w	#2,d1		; 10
+	or.w	d1,d3		;  4
+	swap	d2		;  4
+	and.l	const2,d2	;  8
+	or.l	d2,d3		;  8
+	move.l	d3,d2		;  4
+	lsr.l	#7,d2		; 22
+	move.l	d3,d1		;  4
+	and.l	const1,d1	;  8
+	eor.l	d1,d3		;  8
+	move.l	d2,d4		;  4
+	and.l	const1,d4	;  8
+	eor.l	d4,d2		;  8
+	or.l	d4,d3		;  8
+	lsr.l	#1,d3		; 10
+	or.l	d1,d2		;  8  inner loop thus far is 220
+
+	move.b	d3,(plane3)+	; Write 8 pixels to the 4 bitplanes
+	swap	d3
+	move.b	d3,(plane1)+
+	move.b	d2,(plane2)+
+	swap	d2
+	move.b	d2,(plane0)+
+				
+	subq.w	#1,count	;   check if end of buffer is reached
+	bne.b	C2Pmain		;   no continue as usual
+FINC2P:	movem.l	(sp)+,d2-d6/a2-a4
+	rts
+;--------------------------------------------------------------------
+;--------------------------------------------------------------------
+
+
+;--------------------------------------------------------------------
+;AsmClearBackground
+;
+;FUNCTION:
+;   Clears the upper and lower region of the wolf background
+;   with two colours. The upper region's colour is found in d0,
+;   and the lower region's colour is found in d1.
+;
+;PARAMETERS:
+;   a0 -> chunky pixel buffer
+;   d0 -> colour 1
+;   d1 -> colour 2
+;
+;RETURNS:
+;   none
+;
+;NOTE:
+;   this routine requires the view area to be longword aligned
+;   and for the width to be evenly divisible by 4
+;--------------------------------------------------------------------
+
+
+; -------------------------  D E F I N E S  -------------------------
+
+CLR_ADDROFFSET	equ	((VIEW_TOP*DISPLAY_WIDTH)+VIEW_LEFT)
+CLR_HALFSIZE	equ	(((VIEW_WIDTH*VIEW_HEIGHT)/8)/(VIEW_WIDTH/4))
+
+
+; ----------------------------  M A I N  ----------------------------
+_AsmClearBackground
+	movem.l	d2-d3/a0-a1,-(sp)
+	moveq	#0,d2
+	
+	adda.l	#CLR_ADDROFFSET,a0
+	movea.l	a0,a1
+					; PASS 1 - clear the upper region
+CLR_PASS1:				; with the colours found in D0
+	move.l	#CLR_HALFSIZE-1,d3
+ClearTop:
+	move.w	#VIEW_WIDTH/4-1,d2	; Used for clearing a single row
+ClearRow1:
+	move.l	d0,(a0)+
+	dbra	d2,ClearRow1
+	
+	adda.w	#DISPLAY_WIDTH,a1
+	movea.l	a1,a0
+	dbra	d3,ClearTop
+
+					; PASS 2 - clear the lower region
+CLR_PASS2:				; with the colours found in D0
+	move.l	#CLR_HALFSIZE-1,d3
+ClearBottom:
+	move.w	#VIEW_WIDTH/4-1,d2	; Used for clearing a single row
+ClearRow2:
+	move.l	d1,(a0)+
+	dbra	d2,ClearRow2
+	
+	adda.w	#DISPLAY_WIDTH,a1
+	movea.l	a1,a0
+	dbra	d3,ClearBottom
+
+CLRFIN:	movem.l	(sp)+,d2-d3/a0-a1
+	rts
+;--------------------------------------------------------------------
+;--------------------------------------------------------------------
+
+
+
+;--------------------------------------------------------------------
+;AsmRenderMaze
+;
+;FUNCTION:
+;   Render the visible maze walls into the frame buffer.
+;
+;PARAMETERS:
+;   a0 -> &xBUFFER[VIEW_LEFT]
+;   a1 -> frame buffer
+;
+;RETURNS:
+;   none
+;
+;--------------------------------------------------------------------
+
+; -------------------------  D E F I N E S  -------------------------
+
+half_fBUFF	EQU 	VIEW_MIDDLE ; BufferSize/2
+
+X		EQUR	d0
+yinc		EQUR	d1
+yrinc		equr	d2
+HC		EQUR	d3
+temp1		EQUR	d4
+endY		EQUR	d5
+errY		EQUR	d6
+VIEWR		EQUR	d7
+
+xBUFF		EQUR	a0
+fBUFF		EQUR	a1
+fBUFF2		equr	a2
+LHC		EQUR	a3
+BMP		EQUR	a4
+LBMP		EQUR	a5
+wall1		EQUR	a3
+wall2		EQUR	a5
+VIEWC		EQUR	a6
+
+
+;+-------+	+-------+
+;|walls	| ---\	|Create	|
+;|doors	| ----|	|xBuffer|
+;|objects| ---/	|	|
+;+-------+	+-------+
+
+
+
+; ----------------------------  M A I N  ----------------------------
+
+_AsmRenderMaze:
+
+INIT:	movem.l	d2-d7/a2-a6,-(sp)
+	move.l	#VIEW_LEFT,X	
+	move.l	X,LHC
+	move.l	X,LBMP
+	move.l	#DISPLAY_WIDTH,VIEWR
+	move.l	#VIEW_TOP,d3
+	muls.w	VIEWR,d3
+	adda.l	d3,fBUFF
+	
+	movea.l	#VIEW_CENTER_ROW,VIEWC
+	
+	; -----------------------------------------------------------
+xLoop:	move.l	(xBUFF)+,HC		; Fetch height, column from xBUFFER
+	movea.l	(xBUFF)+,BMP		; Fetch bitmap from xBUFFER
+
+	cmp.l	LHC,HC			; Is Height = LastHeight & Column = LastColumn?
+	bne.b	ScaleColumn		; No
+	cmp.l	LBMP,BMP		; Is Bitmap = LastBitmap?
+	bne.b	ScaleColumn		; No
+	; -------------------------------
+	
+CopyColumn:
+	move.l	fBUFF,-(sp)		; make a backup of fBUFF
+	adda.l	X,fBUFF			; startY = fBUFF = X
+	adda.l	#half_fBUFF,fBUFF
+	move.l	fBUFF,fBUFF2
+
+	cmp.w	VIEWC,HC		; Is height > ViewCenterY+1?
+	ble.b	copySmall		; no
+	; -------------------------------
+copyBig:	
+	move.l	VIEWC,temp1
+	bra.b	PreCpy
+copySmall:
+	move.l	HC,temp1
+
+PreCpy: subq.l	#1,temp1
+
+COPY:	suba.l	VIEWR,fBUFF2
+	move.b	-1(fBUFF),(fBUFF)
+	adda.l	VIEWR,fBUFF
+	move.b	-1(fBUFF2),(fBUFF2)	
+	dbra	temp1,COPY
+
+EndCpy:	move.l	(sp)+,fBUFF		; restore fBUFF
+	bra.b	NextX	
+
+	; -------------------------------
+
+ScaleColumn:
+	; if any future unexplained problems occur, try checking for HC > 0
+	tst.w	HC			; Empty column?
+	beq.b	NextX			; Yup, skip this column
+		
+	move.l	fBUFF,-(sp)
+	adda.l	X,fBUFF			; startY = fBUFF = X
+	add.l	#half_fBUFF,fBUFF
+	movea.l fBUFF,fBUFF2
+	
+	move.l	HC,temp1		; Initialize the wall bitmap ptrs
+	swap	temp1
+	ext.l	temp1			; temp1 = column
+	lsl.w	#6,temp1		; temp1 = column * 64
+	move.l	BMP,wall1
+	adda.l	temp1,wall1		; bitmap+column*64
+	lea	31(wall1),wall1
+	move.l	wall1,wall2		; wall2 = bitmap+column*64+63-scrY
+	addq.l	#1,wall1		; wall1 = bitmap+column*64+scrY
+
+	moveq	#32,yrinc		; do scaling division
+	moveq	#0,yinc
+	cmp.w	yrinc,HC
+	bgt.b	SetErr
+
+
+DoDiv:	divs.w	HC,yrinc		; 
+	move.w	yrinc,yinc		; yinc = 32 / height
+	swap	yrinc			; yrinc = 32 % height
+	
+SetErr:	move.w	HC,errY			; errY = -height
+	neg.w	errY
+	
+	cmp.w	VIEWC,HC		; Is height > ViewCenterY+1 ?
+	ble.b	scaleSmall		; no
+
+scaleBig:
+	move.l	VIEWC,endY
+	bra.b	MoreScaleInit
+
+	; -------------------------------
+
+NextX:	addq.w	#1,X
+	cmp.w	#VIEW_RIGHT+1,X
+	bne.b	xLoop
+FIN:	movem.l	(sp)+,d2-d7/a2-a6
+	rts
+
+	; -------------------------------
+
+scaleSmall:
+	move.l	HC,endY
+
+	; -------------------------------
+
+MoreScaleInit:	
+	subq.l	#1,endY
+	tst.w	yinc
+	beq.b	SCALE2
+
+	; -------------------------------
+	
+SCALE1:	suba.l	VIEWR,fBUFF2
+	move.b	(wall1),(fBUFF)
+	adda.l	yinc,wall1
+	move.b	(wall2),(fBUFF2)
+	suba.l	yinc,wall2
+
+	add.w	yrinc,errY
+	blt.b	Check1ScaleFin
+	sub.w	HC,errY
+	addq.l	#1,wall1
+	subq.l	#1,wall2
+	
+Check1ScaleFin:
+	adda.l	VIEWR,fBUFF
+	dbra	endY,SCALE1
+
+	move.l	HC,LHC
+	move.l	BMP,LBMP
+	move.l	(sp)+,fBUFF
+	bra.b	NextX
+
+	; -------------------------------
+	
+SCALE2:	suba.l	VIEWR,fBUFF2
+	move.b	(wall1),(fBUFF)
+	move.b	(wall2),(fBUFF2)
+
+	add.w	yrinc,errY
+	blt.b	Check2ScaleFin
+	sub.w	HC,errY
+	addq.l	#1,wall1
+	subq.l	#1,wall2
+	
+Check2ScaleFin:
+	adda.l	VIEWR,fBUFF
+	dbra	endY,SCALE2
+
+	move.l	(sp)+,fBUFF
+	move.l	HC,LHC
+	move.l	BMP,LBMP	
+	bra.b	NextX	
+;--------------------------------------------------------------------
+;--------------------------------------------------------------------
+	end

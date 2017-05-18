@@ -1,0 +1,28 @@
+/*   ARGASM.CED - Macro to call Argonauts ArgAsm from CygnusEd
+ */
+options results
+LF = '0A'X
+
+rawkey 17 128
+
+status 19
+FileName = result
+
+
+getstring 'ram:test'  '"Destination file name:"'
+
+
+
+TestFile = result
+
+If (Testfile = "RESULT") then exit 0
+
+address command "c:arg > ram:errors " Filename  "-m 1000000 -o " TestFile
+
+/* If you have less than ram than me :-) change the 1000000 to a lower
+   value */
+address command "ed ram:errors -o"
+
+jump to file "errors"
+
+editable file

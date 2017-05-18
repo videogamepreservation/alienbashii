@@ -1,0 +1,62 @@
+
+;/* $Revision Header *********************************************************
+  *
+  * Main-Programming :
+  * Copyright © 1989-1992 Glen Cummings. All Rights Are Reserved.
+  *
+  * Additional-Programming :
+  * Copyright © 1996 Trevor L. Mensah. All Rights Are Reserved.
+  *
+  * $Creation Language : MC68000 assembly
+  * $File              : scratch:maptool/maptool1200_fix.s
+  * $Created on        : Tuesday, 11-Aug-96 20:17:12
+  * $Created by        : Trevor L. Mensah
+  * $Current revision  : V1.14
+  *
+  * $Purpose
+  * --------
+  * 	A basic block map editor for creation and design of new game 
+  *     level maps. For use on ECS/AGA games.
+  *
+  * $Revision V1.00
+  * ---------------
+  * created on Tuesday 11-Aug-96 20:17:32  by  Trevor Mensah.   LogMessage :
+  *     --- Initial history ---
+  *
+  * $Revision V1.07
+  * ---------------
+  * 1.  Replaced hardwired interrupts with system friendly calls just so I
+  *     could get it working on my system! Now the editor is multitasking and
+  *     the self-modifying code for the interrupt gone making it work! Hurray!
+  * 2.  Reworked scrolling routines a bit for slightly improved refresh rate
+  * 3.  Most direct references to 320 pixels hardwired screenwidth replaced
+  *     with screen structure access for autosensitivity (screenmode switch)
+  * 4.  Replaced old `inbuilt' file-requesters with a new system friendly and
+  *     standard 'reqtools' requesters. Now finally we are able to load and
+  *     save data to/from hard-disks.
+  * 5.  All blit routines now use blit nasty during blitting for a little
+  *     extra performance.
+  * 6.  Print routines modified to use 7 pixel print width instead of 10
+  *     to enable more descriptive text in gadgets and make them look a bit
+  *     nicer on the eye.
+  * 7.  Screen display copperlist now uses 64-Bit AGA fetchmode`s for some
+  *     additional screen refresh speed.
+  * 8.  Added a check to the mouse x-scaling factor for when running in high
+  *     resolution screen mode so that the the gadget coordinates are correct.
+  * 9.  All window x-start positions are now ignored, instead the windows
+  *     are now centred on the screen dependent on the screen pixel width.
+  *     This feature really should be added as an option to the window flags
+  *     but for now I have simply bypassed the window`s xstart regardless.
+  *     This is a simple fix to make windows appear in the centre of the screen
+  *     for when running in high-resolution mode.
+  * 10. Preview scaling now works in high-resolution mode.
+  * 11. Moved workbench startup code into its own file for asm-one direct
+  *     to support `assemble-run' feature.
+  * 12. Code hunks sectioned into public memory, now only graphics data and 
+  *     copperlists in chipmem (along with screen buffers). This speeds up
+  *     the code a fair bit on my system now that the code is in fast-ram 
+  *     and also saves 100k of chipram and lots on filesize.
+  * 13. Removed unneccessary button gadget data`s and changed gadgets imagery
+  *     to look a little more modern.
+  * 14. Minor changes to copper display code to reflect the newlook gadgets.
+  *************************************************************************/

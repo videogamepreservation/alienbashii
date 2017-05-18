@@ -1,0 +1,17 @@
+/* ERRORS.CED - Macro to view or unview (urghh) errors in
+   Cygnus Ed
+
+*/
+
+options results
+LF = '0A'X
+
+jump to file "errors"
+
+if result = 0 then do
+        address command "ed ram:errors"
+        jump to file "errors"
+	editable file
+        exit 0
+end
+quit

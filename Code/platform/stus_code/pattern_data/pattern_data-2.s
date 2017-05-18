@@ -1,0 +1,15 @@
+
+	dc.w $FFFF,$FFF5,$FFFF,$FFF6,$FFFF,$FFF6,$FFFF,$FFF7,$FFFF,$FFF8,$FFFF,$FFF9
+	dc.w $FFFF,$FFFA,$FFFF,$FFFA,$FFFF,$FFFB,$FFFF,$FFFC,$FFFF,$FFFD,$FFFF,$FFFE
+	dc.w $FFFF,$FFFE,$FFFF,$FFFF,$FFFF,$0,$FFFF,$1,$FFFF,$2,$FFFF,$2
+	dc.w $FFFF,$3,$FFFF,$4,$FFFF,$5,$FFFF,$6,$FFFF,$6,$FFFF,$7
+	dc.w $FFFF,$8,$FFFF,$9,$FFFF,$A,$FFFF,$A,$FFFF,$B,$FFFF,$C
+	dc.w $FFFF,$D,$FFFF,$E,$FFFF,$E,$0,$F,$FFFF,$10,$0,$11
+	dc.w $FFFF,$12,$0,$12,$FFFF,$13,$0,$14,$FFFF,$15,$0,$16
+	dc.w $FFFF,$16,$0,$17,$FFFF,$18,$0,$19,$FFFF,$1A,$0,$1A
+	dc.w $FFFF,$1B,$0,$1C,$FFFF,$1D,$0,$1E,$FFFF,$1E,$0,$1F
+	dc.w $FFFF,$20,$0,$21,$FFFF,$22,$0,$22,$FFFF,$23,$0,$24
+	dc.w $FFFF,$25,$0,$26,$FFFF,$26,$0,$27,$FFFF,$28,$0,$29
+	dc.w $FFFF,$2A,$0,$2A,$FFFF,$2B,$0,$2C,$FFFF,$2D,$0,$2E
+	dc.w $FFFF,$2E,$0,$2F,$FFFF,$30,$0,$31,$FFFF,$32,$0,$32
+	dc.w $FFFF,$33,$0,$34

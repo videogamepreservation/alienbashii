@@ -1,0 +1,111 @@
+                        Using the Blitter
+                        -----------------
+
+
+Using the blitter
+-----------------
+
+If you are using the blitter in your code and you are leaving the
+system intact (as you should) always use the graphics.library
+functions OwnBlitter() and DisownBlitter() to take control
+of the blitter. Remember to free it for system use, many system
+functions (including floppy disk data decoding) use the blitter.
+
+OwnBlitter() does not trash any registers. I guess DisownBlitter()
+doesn't either, although Chris may well correct me on this, and
+they are fast enough to use around your blitter code, so don't
+just OwnBlitter() at the beginning of your code and DisownBlitter()
+at the end, only OwnBlitter() when you need to.
+
+Another big mistake I've seen is with blitter/processor timing.
+
+Assuming that a particular routine will be slow enough that a blitter
+wait is not needed is silly. Always check for blitter finished, and
+wait if you need to.
+
+Don't assume the blitter will always run at the same speed too. Think
+about how your code would run if the processor or blitter were running
+at 100 times the current speed. As long as you keep this in mind,
+you'll be in a better frame of mind for writing compatible code.
+
+Another big source of blitter problems is using the blitter in interrupts.
+
+Most demos do all processing in the interrupt, with only a
+
+.wt	   btst	   #6,$bfe001		; is left mouse button clicked?
+	   bne.s   .wt
+
+loop outside of the interrupt. However, some demos do stuff outside the
+interrupt too. Warning. If you use blitter in both your interrupt
+and your main code, (or for that matter if you use the blitter via the
+copper and also in your main code), you may have big problems....
+
+Take this for example:
+
+	lea	$dff000,a5
+	move.l	GfxBase,a6
+	jsr	   _LVOWaitBlit(a6)
+	move.l	#-1,BLTAFWM(a5)		; set FWM and LWM in one go
+	move.l	#source,BLTAPT(a5)
+	move.l	#dest,BLTDPT(a5)
+	move.w	#%100111110000,BLTCON0(a5)
+	move.w	#0,BLTCON1(a5)
+	move.w	#64*height+width/2,BLTSIZE(a5)	; trigger blitter
+
+There is *nothing* stopping an interrupt, or copper, triggering a
+blitter operation between the WaitBlit call and
+your final BLTSIZE blitter trigger. This can lead to total system blowup.
+
+Code that may, by luck, work on standard speed machines may die horribly
+on faster processors due to timing differences causing this type of
+problem to occurr.
+
+The safest way to avoid this is to keep all your blitter calls together,
+use the copper exclusively, or write a blitter-interrupt routine to
+do your blits for you, which is very good because you avoid getting
+stuck in a waitblit-loop.
+
+Always use the graphics.library WaitBlit() routine for your
+end of blitter code. It does not change any registers, it takes into
+account any revision of blitter chip and any unusual circumstances,
+and on an Amiga 1200 will execute faster (because in 32-bit ROM)
+than any code that you could write in chipram.
+
+
+Another thing concerning the blitter:
+
+Instead of calculating your LF-bytes all the time you can do this
+
+A	EQU	%11110000
+B	EQU	%11001100
+C	EQU	%10101010
+
+So when you need an lf-byte you can just type:
+
+	move.w	#(A!B)&C,d0
+
+Blitter clears
+--------------
+If you use the blitter to clear large areas, you can generally
+improve speed on higher processors (68020+) by replacing it by
+a cache-loop that clears with movem.l instead:
+
+        moveq	#0,d0
+	:
+        moveq	#0,d6
+        sub.l	a0,a0
+	:
+	sub.l	a5,a5
+
+        lea	EndOfView,a6
+	move.w	#number of movements - 1,d7
+.Clear
+	movem.l	d0-d6/a0-a5,-(a6)
+	dbf	d7,.Clear
+
+This loop was (on my 1200) almost three times faster than
+the blitter.
+
+With 68000-68010 you can gain some time by NOT using blitter-
+nasty and the movem-loop.
+

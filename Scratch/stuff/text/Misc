@@ -1,0 +1,61 @@
+                      Miscellaneous hint and tips
+                      ---------------------------
+
+How do I make a RESET?
+----------------------
+
+Here is the official routine supported by Commodore:
+                             ^^^^^^^^^^^^^^^^^^^^^^
+
+
+  INCLUDE "exec/types.i"
+  INCLUDE "exec/libraries.i"
+
+  csect text
+  xdef  _ColdReboot
+  xref  _LVOSupervisor
+
+EXECBASE        equ 4
+ROMEND          equ $01000000
+SIZE_OFFSET     equ -$14
+
+KICK_V36        equ 36
+V36_ColdReboot  equ -726
+
+
+_ColdReboot:
+      move.l EXECBASE,a6
+      cmp.w  #KICK_V36,LIB_VERSION(a6)   ;which Version of Exec ?
+      blt.s  .old_kick                   ;old one -> goto old_kick
+
+      jmp    V36_ColdReboot(a6)          ;else use Exec-Function
+
+.old_kick:
+      lea    .Reset_Code(pc),a5
+      jsr    _LVOSupervisor(a6)          ;get Supervisor-status
+      ;never reaching this point
+
+    cnop 0,4                             ;very important
+.Reset_Code:
+      lea    ROMEND,a0                   ;Calc Entrypoint
+      sub.l  SIZE_OFFSET(a0),a0
+      move.l 4(a0),a0
+      subq.l #2,a0
+      reset                              ;Reset peripherie
+      jmp    (a0)                        ;done
+                     ; <reset> and <jmp> in the same LONGWORD !!!!
+END
+
+
+Trackloaders
+------------
+
+Use CIA timers! DON'T use processor timing. If you use processor timing you
+will MESS UP the diskdrives in accelerated Amigas.
+
+Use AddICRVector to allocate your timers, don't hit $bfxxxx
+addresses!!!
+
+On second thoughts. DON'T use trackloaders! Use Dos...
+
+
